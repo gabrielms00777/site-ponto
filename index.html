@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ponto Socorro - Soluções em Relógio de Ponto e Controle de Acesso</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bordo: #8B0000;
+            --cinza-claro: #F5F5F5;
+            --cinza-medio: #808080;
+            --azul-acinzentado: #6B7A8F;
+            --branco: #FFFFFF;
+            --grafite: #404040;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .bg-bordo {
+            background-color: var(--bordo);
+        }
+
+        .text-bordo {
+            color: var(--bordo);
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--grafite) 0%, #1a1a1a 100%);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(139, 0, 0, 0.15);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .logo-scroll-container {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .logo-scroll {
+            display: flex;
+            animation: scroll 30s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .logo-scroll:hover {
+            animation-play-state: paused;
+        }
+
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .mobile-dropdown-content.open {
+            max-height: 500px;
+        }
+
+        .section-hidden {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .section-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-zinc-900 text-zinc-200">
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-zinc-800 shadow-lg" id="main-header">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="./logo-ponto-socorro.png" alt="Ponto Socorro" class="h-10">
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden lg:flex space-x-1">
+                    <a href="#inicio" class="px-4 py-2 text-zinc-300 hover:text-white font-medium transition hover:bg-zinc-700 rounded-lg">Início</a>
+
+                    <!-- Relógio de Ponto Dropdown -->
+                    <div class="relative dropdown">
+                        <button class="px-4 py-2 text-zinc-300 hover:text-white font-medium transition hover:bg-zinc-700 rounded-lg flex items-center">
+                            Relógio de Ponto <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                        </button>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-64 bg-zinc-800 rounded-lg shadow-xl py-2 z-50">
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Relógio de Ponto Biométrico</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Relógio de Ponto Facial</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Relógio de Ponto por Proximidade</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Relógio de Ponto Cartográfico</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Acessórios para Relógios de Ponto</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Aplicativos</a>
+                        </div>
+                    </div>
+
+                    <!-- Controle de Acesso Dropdown -->
+                    <div class="relative dropdown">
+                        <button class="px-4 py-2 text-zinc-300 hover:text-white font-medium transition hover:bg-zinc-700 rounded-lg flex items-center">
+                            Controle de Acesso <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                        </button>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-64 bg-zinc-800 rounded-lg shadow-xl py-2 z-50">
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Controle de Acesso Facial</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Controle de Acesso Biométrico</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Controle de Acesso por Proximidade</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Controle de Acesso Antena UHF</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Catracas de Acesso</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Torniquetes</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Cancelas</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Aplicativos</a>
+                        </div>
+                    </div>
+
+                    <!-- Automação Comercial Dropdown -->
+                    <div class="relative dropdown">
+                        <button class="px-4 py-2 text-zinc-300 hover:text-white font-medium transition hover:bg-zinc-700 rounded-lg flex items-center">
+                            Automação Comercial <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                        </button>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-64 bg-zinc-800 rounded-lg shadow-xl py-2 z-50">
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Impressora Térmica de Cupom</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Leitor Biométrico USB</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">SAT Fiscal</a>
+                        </div>
+                    </div>
+
+                    <a href="#suporte" class="px-4 py-2 text-zinc-300 hover:text-white font-medium transition hover:bg-zinc-700 rounded-lg">Suporte</a>
+                    
+                    <a href="#sobre" class="px-4 py-2 text-zinc-300 hover:text-white font-medium transition hover:bg-zinc-700 rounded-lg">Sobre</a>
+                    
+                    <a href="#central-rh" class="px-4 py-2 text-zinc-300 hover:text-white font-medium transition hover:bg-zinc-700 rounded-lg">Central do RH</a>
+                    
+                    <a href="#area-cliente" class="px-4 py-2 text-zinc-300 hover:text-white font-medium transition hover:bg-zinc-700 rounded-lg">Área do Cliente</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <a href="https://wa.me/5516997918383?text=Olá! Gostaria de solicitar um orçamento." target="_blank"
+                        class="bg-bordo hover:bg-red-800 text-white px-4 py-2 rounded-lg font-medium transition shadow-md flex items-center">
+                        <i class="fab fa-whatsapp mr-2"></i> Fale Conosco
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="lg:hidden text-zinc-300">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="lg:hidden bg-zinc-800 py-4 px-2 shadow-lg rounded-lg mt-3 hidden">
+                <div class="flex flex-col space-y-2">
+                    <a href="#inicio" class="text-zinc-300 hover:text-white hover:bg-zinc-700 font-medium py-2 px-4 rounded transition">Início</a>
+
+                    <!-- Mobile Relógio de Ponto Dropdown -->
+                    <div class="relative">
+                        <button class="mobile-dropdown-btn w-full text-left text-zinc-300 hover:text-white hover:bg-zinc-700 font-medium py-2 px-4 rounded transition flex justify-between items-center">
+                            Relógio de Ponto <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="mobile-dropdown-content ml-4 mt-1 bg-zinc-700 rounded-lg py-2">
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Biométrico</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Facial</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Por Proximidade</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Cartográfico</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Acessórios</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Aplicativos</a>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Controle de Acesso Dropdown -->
+                    <div class="relative">
+                        <button class="mobile-dropdown-btn w-full text-left text-zinc-300 hover:text-white hover:bg-zinc-700 font-medium py-2 px-4 rounded transition flex justify-between items-center">
+                            Controle de Acesso <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="mobile-dropdown-content ml-4 mt-1 bg-zinc-700 rounded-lg py-2">
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Facial</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Biométrico</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Por Proximidade</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Antena UHF</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Catracas</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Torniquetes</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Cancelas</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Aplicativos</a>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Automação Comercial Dropdown -->
+                    <div class="relative">
+                        <button class="mobile-dropdown-btn w-full text-left text-zinc-300 hover:text-white hover:bg-zinc-700 font-medium py-2 px-4 rounded transition flex justify-between items-center">
+                            Automação Comercial <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="mobile-dropdown-content ml-4 mt-1 bg-zinc-700 rounded-lg py-2">
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Impressora Térmica</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Leitor Biométrico USB</a>
+                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">SAT Fiscal</a>
+                        </div>
+                    </div>
+
+                    <a href="#suporte" class="text-zinc-300 hover:text-white hover:bg-zinc-700 font-medium py-2 px-4 rounded transition">Suporte</a>
+                    <a href="#sobre" class="text-zinc-300 hover:text-white hover:bg-zinc-700 font-medium py-2 px-4 rounded transition">Sobre</a>
+                    <a href="#central-rh" class="text-zinc-300 hover:text-white hover:bg-zinc-700 font-medium py-2 px-4 rounded transition">Central do RH</a>
+                    <a href="#area-cliente" class="text-zinc-300 hover:text-white hover:bg-zinc-700 font-medium py-2 px-4 rounded transition">Área do Cliente</a>
+
+                    <a href="https://wa.me/5516997918383?text=Olá! Gostaria de solicitar um orçamento." target="_blank"
+                        class="bg-bordo hover:bg-red-800 text-white text-center py-2 rounded-lg font-medium transition mt-2">
+                        <i class="fab fa-whatsapp mr-2"></i> Fale Conosco
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section Corrigida -->
+    <section id="inicio" class="relative overflow-hidden bg-zinc-900 text-white min-h-screen flex items-center">
+        <!-- Background Images -->
+        <div id="carousel-slides" class="absolute inset-0">
+            <!-- Slide 1 - Sistema Secullum -->
+            <div class="carousel-slide active absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-cover bg-center md:bg-right bg-no-repeat" style="background-image: url('./secullum.png')">
+                    <div class="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-900/80 to-transparent md:via-zinc-900/70"></div>
+                </div>
+            </div>
+            
+            <!-- Slide 2 - Relógios de Ponto -->
+            <div class="carousel-slide absolute inset-0 z-0 opacity-0 transition-opacity duration-700">
+                <div class="absolute inset-0 bg-cover bg-center md:bg-right bg-no-repeat" style="background-image: url('./faciais.png')">
+                    <div class="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-900/80 to-transparent md:via-zinc-900/70"></div>
+                </div>
+            </div>
+            
+            <!-- Slide 3 - Catracas -->
+            <div class="carousel-slide absolute inset-0 z-0 opacity-0 transition-opacity duration-700">
+                <div class="absolute inset-0 bg-cover bg-center md:bg-right bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')">
+                    <div class="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-900/80 to-transparent md:via-zinc-900/70"></div>
+                </div>
+            </div>
+            
+            <!-- Slide 4 - Torniquetes e Cancelas -->
+            <div class="carousel-slide absolute inset-0 z-0 opacity-0 transition-opacity duration-700">
+                <div class="absolute inset-0 bg-cover bg-center md:bg-right bg-no-repeat" style="background-image: url('https://pontosocorro.com.br/wp-content/uploads/2025/03/slide-controle-de-ponto.webp')">
+                    <div class="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-900/80 to-transparent md:via-zinc-900/70"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <div class="absolute inset-y-0 left-2 md:left-4 flex items-center z-20">
+            <button id="prev-slide" class="p-2 md:p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-300 transform hover:scale-110">
+                <i class="fas fa-chevron-left text-white text-lg md:text-xl"></i>
+            </button>
+        </div>
+
+        <div class="absolute inset-y-0 right-2 md:right-4 flex items-center z-20">
+            <button id="next-slide" class="p-2 md:p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-300 transform hover:scale-110">
+                <i class="fas fa-chevron-right text-white text-lg md:text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Content -->
+        <div class="container mx-auto px-4 md:px-6 relative z-10 w-full">
+            <div class="max-w-2xl">
+                <!-- Content Container -->
+                <div class="min-h-[50vh] md:min-h-[60vh] flex items-center py-8 md:py-0">
+                    <div id="carousel-content" class="relative w-full px-4">
+                        <!-- Slide 1 Content -->
+                        <div class="carousel-content-item active absolute w-full space-y-6 md:space-y-8 opacity-100 transition-opacity duration-700">
+                            <div class="space-y-4 md:space-y-6">
+                                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight md:leading-tight">
+                                    Sistema <span class="text-bordo">Secullum</span><br>Gestão Completa
+                                </h1>
+                                <p class="text-base md:text-lg text-zinc-300 max-w-lg leading-relaxed">
+                                    Solução inteligente para controle de jornadas que automatiza o registro e cálculo de ponto dos colaboradores.
+                                </p>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-4 md:gap-6">
+                                <a href="#produtos"
+                                    class="bg-bordo hover:bg-red-800 text-white px-6 py-3 md:px-8 md:py-4 rounded-lg font-medium text-center transition-all duration-300 shadow-lg flex items-center justify-center transform hover:scale-105 text-base md:text-lg">
+                                    Conhecer Sistema
+                                </a>
+                                <a href="https://wa.me/5516997918383?text=Olá! Gostaria de uma demonstração do Sistema Secullum."
+                                    target="_blank"
+                                    class="bg-transparent hover:bg-white/10 text-white border-2 border-white px-6 py-3 md:px-8 md:py-4 rounded-lg font-medium text-center transition-all duration-300 transform hover:scale-105 text-base md:text-lg">
+                                    <i class="fab fa-whatsapp mr-2 md:mr-3 text-lg"></i> Solicitar Demonstração
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 Content -->
+                        <div class="carousel-content-item absolute w-full space-y-6 md:space-y-8 opacity-0 transition-opacity duration-700">
+                            <div class="space-y-4 md:space-y-6">
+                                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight md:leading-tight">
+                                    Relógios de <span class="text-bordo">Ponto</span><br>Tecnologia Avançada
+                                </h1>
+                                <p class="text-base md:text-lg text-zinc-300 max-w-lg leading-relaxed">
+                                    Modelos biométricos, de reconhecimento facial e por proximidade com máxima precisão e segurança.
+                                </p>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-4 md:gap-6">
+                                <a href="#produtos"
+                                    class="bg-bordo hover:bg-red-800 text-white px-6 py-3 md:px-8 md:py-4 rounded-lg font-medium text-center transition-all duration-300 shadow-lg flex items-center justify-center transform hover:scale-105 text-base md:text-lg">
+                                    Ver Modelos
+                                </a>
+                                <a href="https://wa.me/5516997918383?text=Olá! Gostaria de informações sobre relógios de ponto."
+                                    target="_blank"
+                                    class="bg-transparent hover:bg-white/10 text-white border-2 border-white px-6 py-3 md:px-8 md:py-4 rounded-lg font-medium text-center transition-all duration-300 transform hover:scale-105 text-base md:text-lg">
+                                    <i class="fab fa-whatsapp mr-2 md:mr-3 text-lg"></i> Solicitar Orçamento
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 Content -->
+                        <div class="carousel-content-item absolute w-full space-y-6 md:space-y-8 opacity-0 transition-opacity duration-700">
+                            <div class="space-y-4 md:space-y-6">
+                                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight md:leading-tight">
+                                    <span class="text-bordo">Catracas</span> de Acesso<br>Segurança e Controle
+                                </h1>
+                                <p class="text-base md:text-lg text-zinc-300 max-w-lg leading-relaxed">
+                                    Soluções completas em controle de acesso para empresas, indústrias e condomínios.
+                                </p>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-4 md:gap-6">
+                                <a href="#produtos"
+                                    class="bg-bordo hover:bg-red-800 text-white px-6 py-3 md:px-8 md:py-4 rounded-lg font-medium text-center transition-all duration-300 shadow-lg flex items-center justify-center transform hover:scale-105 text-base md:text-lg">
+                                    Conhecer Catracas
+                                </a>
+                                <a href="https://wa.me/5516997918383?text=Olá! Gostaria de informações sobre catracas de acesso."
+                                    target="_blank"
+                                    class="bg-transparent hover:bg-white/10 text-white border-2 border-white px-6 py-3 md:px-8 md:py-4 rounded-lg font-medium text-center transition-all duration-300 transform hover:scale-105 text-base md:text-lg">
+                                    <i class="fab fa-whatsapp mr-2 md:mr-3 text-lg"></i> Solicitar Catálogo
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4 Content -->
+                        <div class="carousel-content-item absolute w-full space-y-6 md:space-y-8 opacity-0 transition-opacity duration-700">
+                            <div class="space-y-4 md:space-y-6">
+                                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight md:leading-tight">
+                                    <span class="text-bordo">Torniquetes</span> e Cancelas<br>Controle Total
+                                </h1>
+                                <p class="text-base md:text-lg text-zinc-300 max-w-lg leading-relaxed">
+                                    Sistemas avançados para controle de fluxo de pessoas e veículos em qualquer ambiente.
+                                </p>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-4 md:gap-6">
+                                <a href="#produtos"
+                                    class="bg-bordo hover:bg-red-800 text-white px-6 py-3 md:px-8 md:py-4 rounded-lg font-medium text-center transition-all duration-300 shadow-lg flex items-center justify-center transform hover:scale-105 text-base md:text-lg">
+                                    Ver Soluções
+                                </a>
+                                <a href="https://wa.me/5516997918383?text=Olá! Gostaria de informações sobre torniquetes e cancelas."
+                                    target="_blank"
+                                    class="bg-transparent hover:bg-white/10 text-white border-2 border-white px-6 py-3 md:px-8 md:py-4 rounded-lg font-medium text-center transition-all duration-300 transform hover:scale-105 text-base md:text-lg">
+                                    <i class="fab fa-whatsapp mr-2 md:mr-3 text-lg"></i> Fale com Especialista
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Indicators -->
+                <!-- <div class="flex justify-center md:justify-start space-x-3 mt-6 md:mt-8">
+                    <button class="carousel-indicator w-8 md:w-12 h-2 rounded-full transition-all duration-300 bg-bordo relative overflow-hidden" data-slide="0">
+                        <div class="carousel-progress absolute top-0 left-0 h-full bg-red-400 rounded-full"></div>
+                    </button>
+                    <button class="carousel-indicator w-8 md:w-12 h-2 rounded-full transition-all duration-300 bg-white/30 hover:bg-white/50" data-slide="1"></button>
+                    <button class="carousel-indicator w-8 md:w-12 h-2 rounded-full transition-all duration-300 bg-white/30 hover:bg-white/50" data-slide="2"></button>
+                    <button class="carousel-indicator w-8 md:w-12 h-2 rounded-full transition-all duration-300 bg-white/30 hover:bg-white/50" data-slide="3"></button>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Carousel Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const contents = document.querySelectorAll('.carousel-content-item');
+            const indicators = document.querySelectorAll('.carousel-indicator');
+            const prevBtn = document.getElementById('prev-slide');
+            const nextBtn = document.getElementById('next-slide');
+            let currentSlide = 0;
+            let autoSlideInterval;
+
+            function showSlide(index) {
+                // Hide all slides and contents
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('opacity-0', i !== index);
+                    slide.classList.toggle('opacity-100', i === index);
+                });
+                contents.forEach((content, i) => {
+                    content.classList.toggle('opacity-0', i !== index);
+                    content.classList.toggle('opacity-100', i === index);
+                });
+                // Update indicators
+                indicators.forEach((indicator, i) => {
+                    if (i === index) {
+                        indicator.classList.remove('bg-white/30');
+                        indicator.classList.add('bg-bordo');
+                        indicator.querySelector('.carousel-progress')?.classList.remove('hidden');
+                    } else {
+                        indicator.classList.remove('bg-bordo');
+                        indicator.classList.add('bg-white/30');
+                        indicator.querySelector('.carousel-progress')?.classList.add('hidden');
+                    }
+                });
+                currentSlide = index;
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(nextSlide, 6000);
+            }
+
+            function stopAutoSlide() {
+                clearInterval(autoSlideInterval);
+            }
+
+            // Event listeners
+            nextBtn.addEventListener('click', () => {
+                stopAutoSlide();
+                nextSlide();
+                startAutoSlide();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                stopAutoSlide();
+                prevSlide();
+                startAutoSlide();
+            });
+
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    stopAutoSlide();
+                    showSlide(index);
+                    startAutoSlide();
+                });
+            });
+
+            // Start auto slide
+            startAutoSlide();
+
+            // Pause on hover
+            const carousel = document.getElementById('carousel-slides');
+            carousel.addEventListener('mouseenter', stopAutoSlide);
+            carousel.addEventListener('mouseleave', startAutoSlide);
+        });
+    </script>
+
+    <!-- Partners/Suppliers Section -->
+    <section class="py-12 bg-zinc-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold text-white mb-2">Nossos <span class="text-bordo">Parceiros</span></h2>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Trabalhamos com as melhores marcas do mercado para oferecer qualidade e confiabilidade</p>
+            </div>
+
+            <div class="logo-scroll-container">
+                <div class="logo-scroll">
+                    <div class="flex space-x-12">
+                        <!-- Duplicação de parceiros para efeito contínuo -->
+                        <div class="flex flex-col items-center justify-center min-w-[150px]">
+                            <div class="bg-zinc-700 rounded-lg p-4 flex items-center justify-center h-20 w-20 mb-2">
+                                <div class="text-zinc-300 font-bold text-sm text-center">Intelbras</div>
+                            </div>
+                            <span class="text-zinc-400 text-sm text-center">Sistemas de Segurança</span>
+                        </div>
+
+                        <div class="flex flex-col items-center justify-center min-w-[150px]">
+                            <div class="bg-zinc-700 rounded-lg p-4 flex items-center justify-center h-20 w-20 mb-2">
+                                <div class="text-zinc-300 font-bold text-sm text-center">Henry</div>
+                            </div>
+                            <span class="text-zinc-400 text-sm text-center">Hardware e Software</span>
+                        </div>
+
+                        <div class="flex flex-col items-center justify-center min-w-[150px]">
+                            <div class="bg-zinc-700 rounded-lg p-4 flex items-center justify-center h-20 w-20 mb-2">
+                                <div class="text-zinc-300 font-bold text-sm text-center">Control iD</div>
+                            </div>
+                            <span class="text-zinc-400 text-sm text-center">Biometria e Acesso</span>
+                        </div>
+
+                        <div class="flex flex-col items-center justify-center min-w-[150px]">
+                            <div class="bg-zinc-700 rounded-lg p-4 flex items-center justify-center h-20 w-20 mb-2">
+                                <div class="text-zinc-300 font-bold text-sm text-center">ZKTeco</div>
+                            </div>
+                            <span class="text-zinc-400 text-sm text-center">Tecnologia Biométrica</span>
+                        </div>
+
+                        <div class="flex flex-col items-center justify-center min-w-[150px]">
+                            <div class="bg-zinc-700 rounded-lg p-4 flex items-center justify-center h-20 w-20 mb-2">
+                                <div class="text-zinc-300 font-bold text-sm text-center">DKS</div>
+                            </div>
+                            <span class="text-zinc-400 text-sm text-center">Controle de Acesso</span>
+                        </div>
+
+                        <div class="flex flex-col items-center justify-center min-w-[150px]">
+                            <div class="bg-zinc-700 rounded-lg p-4 flex items-center justify-center h-20 w-20 mb-2">
+                                <div class="text-zinc-300 font-bold text-sm text-center">RWI</div>
+                            </div>
+                            <span class="text-zinc-400 text-sm text-center">Sistemas Integrados</span>
+                        </div>
+
+                        <!-- Duplicação para efeito contínuo -->
+                        <div class="flex flex-col items-center justify-center min-w-[150px]">
+                            <div class="bg-zinc-700 rounded-lg p-4 flex items-center justify-center h-20 w-20 mb-2">
+                                <div class="text-zinc-300 font-bold text-sm text-center">Intelbras</div>
+                            </div>
+                            <span class="text-zinc-400 text-sm text-center">Sistemas de Segurança</span>
+                        </div>
+
+                        <div class="flex flex-col items-center justify-center min-w-[150px]">
+                            <div class="bg-zinc-700 rounded-lg p-4 flex items-center justify-center h-20 w-20 mb-2">
+                                <div class="text-zinc-300 font-bold text-sm text-center">Henry</div>
+                            </div>
+                            <span class="text-zinc-400 text-sm text-center">Hardware e Software</span>
+                        </div>
+
+                        <div class="flex flex-col items-center justify-center min-w-[150px]">
+                            <div class="bg-zinc-700 rounded-lg p-4 flex items-center justify-center h-20 w-20 mb-2">
+                                <div class="text-zinc-300 font-bold text-sm text-center">Control iD</div>
+                            </div>
+                            <span class="text-zinc-400 text-sm text-center">Biometria e Acesso</span>
+                        </div>
+
+                        <div class="flex flex-col items-center justify-center min-w-[150px]">
+                            <div class="bg-zinc-700 rounded-lg p-4 flex items-center justify-center h-20 w-20 mb-2">
+                                <div class="text-zinc-300 font-bold text-sm text-center">ZKTeco</div>
+                            </div>
+                            <span class="text-zinc-400 text-sm text-center">Tecnologia Biométrica</span>
+                        </div>
+
+                        <div class="flex flex-col items-center justify-center min-w-[150px]">
+                            <div class="bg-zinc-700 rounded-lg p-4 flex items-center justify-center h-20 w-20 mb-2">
+                                <div class="text-zinc-300 font-bold text-sm text-center">DKS</div>
+                            </div>
+                            <span class="text-zinc-400 text-sm text-center">Controle de Acesso</span>
+                        </div>
+
+                        <div class="flex flex-col items-center justify-center min-w-[150px]">
+                            <div class="bg-zinc-700 rounded-lg p-4 flex items-center justify-center h-20 w-20 mb-2">
+                                <div class="text-zinc-300 font-bold text-sm text-center">RWI</div>
+                            </div>
+                            <span class="text-zinc-400 text-sm text-center">Sistemas Integrados</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-16 bg-zinc-800 section-hidden">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-4">Por que escolher a <span class="text-bordo">Ponto Socorro</span>?</h2>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Somos especialistas em controle de ponto e acesso, oferecendo soluções que combinam tecnologia avançada com suporte especializado.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-zinc-700 p-6 rounded-xl border border-zinc-600 text-center card-hover fade-in">
+                    <div class="bg-bordo w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shield-alt text-red-300 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Conformidade Trabalhista</h3>
+                    <p class="text-zinc-400">Nossos sistemas atendem todas as exigências legais, incluindo Portaria 671, garantindo segurança jurídica para sua empresa.</p>
+                </div>
+
+                <div class="bg-zinc-700 p-6 rounded-xl border border-zinc-600 text-center card-hover fade-in">
+                    <div class="bg-bordo w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-headset text-red-300 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Suporte Especializado</h3>
+                    <p class="text-zinc-400">Equipe técnica preparada para oferecer suporte remoto e presencial em todo Brasil quando necessário.</p>
+                </div>
+
+                <div class="bg-zinc-700 p-6 rounded-xl border border-zinc-600 text-center card-hover fade-in">
+                    <div class="bg-bordo w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-bolt text-red-300 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Tecnologia Avançada</h3>
+                    <p class="text-zinc-400">Utilizamos as mais modernas tecnologias em biometria, reconhecimento facial e controle de acesso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="produtos" class="py-16 bg-zinc-900 section-hidden">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-4">Nossos <span class="text-bordo">Produtos</span></h2>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Conheça nossa linha completa de equipamentos para controle de ponto e acesso.</p>
+            </div>
+
+            <!-- Product Tabs -->
+            <div class="flex flex-wrap justify-center mb-8 border-b border-zinc-700">
+                <button class="product-tab px-4 py-2 font-medium border-b-2 transition text-bordo border-bordo" data-tab="biometrico">
+                    Biométricos
+                </button>
+                <button class="product-tab px-4 py-2 font-medium border-b-2 transition text-zinc-400 border-transparent hover:text-zinc-300" data-tab="facial">
+                    Reconhecimento Facial
+                </button>
+                <button class="product-tab px-4 py-2 font-medium border-b-2 transition text-zinc-400 border-transparent hover:text-zinc-300" data-tab="proximidade">
+                    Proximidade
+                </button>
+                <button class="product-tab px-4 py-2 font-medium border-b-2 transition text-zinc-400 border-transparent hover:text-zinc-300" data-tab="catracas">
+                    Catracas e Torniquetes
+                </button>
+            </div>
+
+            <!-- Product Content -->
+            <div id="product-biometrico" class="product-content active grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 transition card-hover fade-in">
+                    <div class="h-48 bg-zinc-900 flex items-center justify-center relative p-3">
+                        <img src="https://www.controlid.com.br/assets/images/relogio-de-ponto/rep-idclass-frontal-bio.webp" alt="Relógio de Ponto REP iDClass Bio" class="mt-4 max-h-full max-w-full object-contain">
+                        <div class="absolute top-4 right-4 bg-bordo text-white py-1 px-2 rounded text-xs font-medium">
+                            Mais Vendido
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">REP iDClass Bio</h3>
+                        <p class="text-zinc-400 mb-4">Com um design compacto, inovador e robusto, a Control iD apresenta o Relógio de Ponto iDClass Bio.</p>
+                        <ul class="text-zinc-400 mb-4 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-bordo mr-2 mt-1"></i>
+                                <span>Memória para 3.000 digitais</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-bordo mr-2 mt-1"></i>
+                                <span>Comunicação via USB e Ethernet</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-bordo mr-2 mt-1"></i>
+                                <span>Bateria interna para emergências</span>
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/5516997918383?text=Olá! Gostaria de solicitar orçamento para o REP iDClass Bio." target="_blank"
+                            class="block w-full bg-bordo hover:bg-red-800 text-white text-center py-2 rounded-lg font-medium transition flex items-center justify-center">
+                            <i class="fab fa-whatsapp mr-2"></i> Solicitar Orçamento
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 transition card-hover fade-in">
+                    <div class="h-48 bg-zinc-900 flex items-center justify-center">
+                        <i class="fas fa-fingerprint text-bordo text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">REP 3500 Biométrico</h3>
+                        <p class="text-zinc-400 mb-4">Modelo avançado com sensor capacitivo, maior precisão e capacidade para até 5.000 digitais.</p>
+                        <ul class="text-zinc-400 mb-4 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-bordo mr-2 mt-1"></i>
+                                <span>Memória para 5.000 digitais</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-bordo mr-2 mt-1"></i>
+                                <span>Sensor capacitivo de alta segurança</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-bordo mr-2 mt-1"></i>
+                                <span>Comunicação Wi-Fi e Ethernet</span>
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/5516997918383?text=Olá! Gostaria de solicitar orçamento para o REP 3500 Biométrico." target="_blank"
+                            class="block w-full bg-bordo hover:bg-red-800 text-white text-center py-2 rounded-lg font-medium transition flex items-center justify-center">
+                            <i class="fab fa-whatsapp mr-2"></i> Solicitar Orçamento
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 transition card-hover fade-in">
+                    <div class="h-48 bg-zinc-900 flex items-center justify-center">
+                        <i class="fas fa-fingerprint text-bordo text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">REP 1500 Biométrico</h3>
+                        <p class="text-zinc-400 mb-4">Modelo econômico com ótimo custo-benefício, ideal para pequenas e médias empresas.</p>
+                        <ul class="text-zinc-400 mb-4 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-bordo mr-2 mt-1"></i>
+                                <span>Memória para 1.500 digitais</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-bordo mr-2 mt-1"></i>
+                                <span>Sensor óptico de alta qualidade</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-bordo mr-2 mt-1"></i>
+                                <span>Comunicação USB</span>
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/5516997918383?text=Olá! Gostaria de solicitar orçamento para o REP 1500 Biométrico." target="_blank"
+                            class="block w-full bg-bordo hover:bg-red-800 text-white text-center py-2 rounded-lg font-medium transition flex items-center justify-center">
+                            <i class="fab fa-whatsapp mr-2"></i> Solicitar Orçamento
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other product tabs -->
+            <div id="product-facial" class="product-content hidden text-center py-12">
+                <p class="text-zinc-400">Conteúdo para <span class="font-semibold text-white">Reconhecimento Facial</span> em desenvolvimento.</p>
+                <a href="https://wa.me/5516997918383?text=Olá! Gostaria de informações sobre produtos de reconhecimento facial." target="_blank"
+                    class="inline-block mt-4 bg-bordo hover:bg-red-800 text-white px-6 py-2 rounded-lg font-medium transition">
+                    <i class="fab fa-whatsapp mr-2"></i> Entre em contato para mais informações
+                </a>
+            </div>
+
+            <div id="product-proximidade" class="product-content hidden text-center py-12">
+                <p class="text-zinc-400">Conteúdo para <span class="font-semibold text-white">Proximidade</span> em desenvolvimento.</p>
+                <a href="https://wa.me/5516997918383?text=Olá! Gostaria de informações sobre produtos de proximidade." target="_blank"
+                    class="inline-block mt-4 bg-bordo hover:bg-red-800 text-white px-6 py-2 rounded-lg font-medium transition">
+                    <i class="fab fa-whatsapp mr-2"></i> Entre em contato para mais informações
+                </a>
+            </div>
+
+            <div id="product-catracas" class="product-content hidden text-center py-12">
+                <p class="text-zinc-400">Conteúdo para <span class="font-semibold text-white">Catracas e Torniquetes</span> em desenvolvimento.</p>
+                <a href="https://wa.me/5516997918383?text=Olá! Gostaria de informações sobre catracas e torniquetes." target="_blank"
+                    class="inline-block mt-4 bg-bordo hover:bg-red-800 text-white px-6 py-2 rounded-lg font-medium transition">
+                    <i class="fab fa-whatsapp mr-2"></i> Entre em contato para mais informações
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Central do RH Section -->
+    <section id="central-rh" class="py-16 bg-zinc-800 section-hidden">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-4">Central do <span class="text-bordo">RH</span></h2>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Uma plataforma completa com ferramentas estratégicas para impulsionar a gestão de Recursos Humanos.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-zinc-700 p-6 rounded-xl border border-zinc-600 text-center card-hover fade-in">
+                    <div class="bg-bordo w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-red-300 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Gestão Eficiente</h3>
+                    <p class="text-zinc-400">Otimize processos internos e promova uma gestão mais ágil e integrada.</p>
+                </div>
+
+                <div class="bg-zinc-700 p-6 rounded-xl border border-zinc-600 text-center card-hover fade-in">
+                    <div class="bg-bordo w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-red-300 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Gestão de Pessoas</h3>
+                    <p class="text-zinc-400">Facilite o dia a dia do RH e dos colaboradores com ferramentas intuitivas.</p>
+                </div>
+
+                <div class="bg-zinc-700 p-6 rounded-xl border border-zinc-600 text-center card-hover fade-in">
+                    <div class="bg-bordo w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-cogs text-red-300 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Processos Otimizados</h3>
+                    <p class="text-zinc-400">Integração nativa com equipamentos Control iD em tempo real.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-8">
+                <a href="https://wa.me/5516997918383?text=Olá! Gostaria de conhecer a Central do RH." target="_blank"
+                    class="bg-bordo hover:bg-red-800 text-white px-8 py-3 rounded-lg font-medium transition shadow-lg inline-flex items-center">
+                    <i class="fab fa-whatsapp mr-2 text-lg"></i> Conheça a Central do RH
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Área do Cliente Section -->
+    <section id="area-cliente" class="py-16 bg-zinc-900 section-hidden">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-4">Área do <span class="text-bordo">Cliente</span></h2>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Acesso centralizado aos sistemas RHID e Secullum em um ambiente exclusivo e seguro.</p>
+            </div>
+
+            <div class="max-w-md mx-auto bg-zinc-800 rounded-xl p-8">
+                <div class="text-center mb-6">
+                    <i class="fas fa-user-shield text-bordo text-5xl mb-4"></i>
+                    <h3 class="text-2xl font-bold text-white mb-2">Acesse seu Sistema</h3>
+                    <p class="text-zinc-400">Escolha o sistema desejado para fazer login</p>
+                </div>
+
+                <div class="space-y-4">
+                    <button id="login-rhid" class="w-full bg-bordo hover:bg-red-800 text-white text-center py-3 rounded-lg font-medium transition shadow-md flex items-center justify-center">
+                        <i class="fas fa-sign-in-alt mr-2"></i> Acessar RHID
+                    </button>
+
+                    <button id="login-secullum" class="w-full bg-zinc-700 hover:bg-zinc-600 text-white text-center py-3 rounded-lg font-medium transition flex items-center justify-center">
+                        <i class="fas fa-sign-in-alt mr-2"></i> Acessar Secullum
+                    </button>
+                </div>
+
+                <div class="mt-6 text-center">
+                    <p class="text-zinc-400 text-sm">Problemas com acesso? <a href="#suporte" class="text-bordo hover:text-red-300 transition">Entre em contato com o suporte</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Suporte Section -->
+    <section id="suporte" class="py-16 bg-zinc-800 section-hidden">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-4">Suporte <span class="text-bordo">Técnico</span></h2>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Estamos prontos para ajudar com manuais, tutoriais e atendimento remoto.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-zinc-700 p-6 rounded-xl border border-zinc-600 text-center card-hover fade-in">
+                    <div class="bg-bordo w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-book text-red-300 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Manuais</h3>
+                    <p class="text-zinc-400 text-sm">Documentação completa dos produtos</p>
+                </div>
+
+                <div class="bg-zinc-700 p-6 rounded-xl border border-zinc-600 text-center card-hover fade-in">
+                    <div class="bg-bordo w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-video text-red-300 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Tutoriais</h3>
+                    <p class="text-zinc-400 text-sm">Vídeos explicativos passo a passo</p>
+                </div>
+
+                <div class="bg-zinc-700 p-6 rounded-xl border border-zinc-600 text-center card-hover fade-in">
+                    <div class="bg-bordo w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tools text-red-300 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">TeamViewer</h3>
+                    <p class="text-zinc-400 text-sm">Suporte remoto especializado</p>
+                </div>
+
+                <div class="bg-zinc-700 p-6 rounded-xl border border-zinc-600 text-center card-hover fade-in">
+                    <div class="bg-bordo w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-desktop text-red-300 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">AnyDesk</h3>
+                    <p class="text-zinc-400 text-sm">Atendimento técnico remoto</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-8">
+                <a href="https://wa.me/5516997918383?text=Olá! Preciso de suporte técnico." target="_blank"
+                    class="bg-bordo hover:bg-red-800 text-white px-8 py-3 rounded-lg font-medium transition shadow-lg inline-flex items-center">
+                    <i class="fas fa-headset mr-2 text-lg"></i> Solicitar Suporte
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nós Section -->
+    <section id="sobre" class="py-16 bg-zinc-900 section-hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl font-bold text-white mb-4">Sobre a <span class="text-bordo">Ponto Socorro</span></h2>
+                    <p class="text-zinc-400 mb-6">
+                        Há anos no mercado, a Ponto Socorro se consolidou como referência em soluções para controle de ponto e acesso. 
+                        Nossa missão é oferecer tecnologia avançada com suporte especializado, garantindo conformidade trabalhista e 
+                        segurança para empresas de todos os portes.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-bordo mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold text-white">Missão</h4>
+                                <p class="text-zinc-400 text-sm">Oferecer as melhores soluções em controle de ponto e acesso</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-bordo mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold text-white">Visão</h4>
+                                <p class="text-zinc-400 text-sm">Ser referência nacional em tecnologia para gestão de pessoas</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Redes Sociais -->
+                    <div class="mt-8">
+                        <h4 class="font-semibold text-white mb-4">Siga nossas redes sociais</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-zinc-400 hover:text-blue-400 transition"><i class="fab fa-facebook text-2xl"></i></a>
+                            <a href="#" class="text-zinc-400 hover:text-pink-500 transition"><i class="fab fa-instagram text-2xl"></i></a>
+                            <a href="#" class="text-zinc-400 hover:text-blue-300 transition"><i class="fab fa-linkedin text-2xl"></i></a>
+                            <a href="#" class="text-zinc-400 hover:text-red-500 transition"><i class="fab fa-youtube text-2xl"></i></a>
+                            <a href="#" class="text-zinc-400 hover:text-black transition"><i class="fab fa-tiktok text-2xl"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="bg-zinc-800 rounded-xl p-6">
+                        <!-- <img src="https://images.unsplash.com/photo-1568992688065-536aad8a12f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"  -->
+                        <img src="./fachada.png" 
+                             alt="Fachada Ponto Socorro" class="w-full h-64 object-cover rounded-lg mb-4">
+                        <p class="text-zinc-400 text-sm text-center">Nossa sede em Ribeirão Preto/SP</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="py-16 bg-zinc-800 section-hidden">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-4">Nossos <span class="text-bordo">Clientes</span></h2>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Empresas que confiam em nossos produtos e serviços</p>
+            </div>
+
+            <div class="logo-scroll-container">
+                <div class="logo-scroll" style="animation-duration: 40s;">
+                    <div class="flex space-x-16">
+                        <!-- Clientes duplicados para efeito contínuo -->
+                        <div class="flex flex-col items-center justify-center min-w-[120px]">
+                            <div class="bg-zinc-700 rounded-full p-4 flex items-center justify-center h-24 w-24 mb-2">
+                                <div class="text-zinc-300 font-bold text-sm text-center">Empresa<br>Logística</div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col items-center justify-center min-w-[120px]">
+                            <div class="bg-zinc-700 rounded-full p-4 flex items-center justify-center h-24 w-24 mb-2">
+                                <div class="text-zinc-300 font-bold text-sm text-center">Rede<br>Varejo</div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col items-center justify-center min-w-[120px]">
+                            <div class="bg-zinc-700 rounded-full p-4 flex items-center justify-center h-24 w-24 mb-2">
+                                <div class="text-zinc-300 font-bold text-sm text-center">Indústria<br>Metallúrgica</div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col items-center justify-center min-w-[120px]">
+                            <div class="bg-zinc-700 rounded-full p-4 flex items-center justify-center h-24 w-24 mb-2">
+                                <div class="text-zinc-300 font-bold text-sm text-center">Hospital<br>Regional</div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col items-center justify-center min-w-[120px]">
+                            <div class="bg-zinc-700 rounded-full p-4 flex items-center justify-center h-24 w-24 mb-2">
+                                <div class="text-zinc-300 font-bold text-sm text-center">Escola<br>Privada</div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col items-center justify-center min-w-[120px]">
+                            <div class="bg-zinc-700 rounded-full p-4 flex items-center justify-center h-24 w-24 mb-2">
+                                <div class="text-zinc-300 font-bold text-sm text-center">Constr<br>Tecnica</div>
+                            </div>
+                        </div>
+
+                        <!-- Duplicação -->
+                        <div class="flex flex-col items-center justify-center min-w-[120px]">
+                            <div class="bg-zinc-700 rounded-full p-4 flex items-center justify-center h-24 w-24 mb-2">
+                                <div class="text-zinc-300 font-bold text-sm text-center">Empresa<br>Logística</div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col items-center justify-center min-w-[120px]">
+                            <div class="bg-zinc-700 rounded-full p-4 flex items-center justify-center h-24 w-24 mb-2">
+                                <div class="text-zinc-300 font-bold text-sm text-center">Rede<br>Varejo</div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col items-center justify-center min-w-[120px]">
+                            <div class="bg-zinc-700 rounded-full p-4 flex items-center justify-center h-24 w-24 mb-2">
+                                <div class="text-zinc-300 font-bold text-sm text-center">Indústria<br>Metallúrgica</div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col items-center justify-center min-w-[120px]">
+                            <div class="bg-zinc-700 rounded-full p-4 flex items-center justify-center h-24 w-24 mb-2">
+                                <div class="text-zinc-300 font-bold text-sm text-center">Hospital<br>Regional</div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col items-center justify-center min-w-[120px]">
+                            <div class="bg-zinc-700 rounded-full p-4 flex items-center justify-center h-24 w-24 mb-2">
+                                <div class="text-zinc-300 font-bold text-sm text-center">Escola<br>Privada</div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col items-center justify-center min-w-[120px]">
+                            <div class="bg-zinc-700 rounded-full p-4 flex items-center justify-center h-24 w-24 mb-2">
+                                <div class="text-zinc-300 font-bold text-sm text-center">Constr<br>Tecnica</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-zinc-900 to-[#8B0000]/30 section-hidden">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Precisa de uma solução personalizada?</h2>
+            <p class="text-zinc-300 max-w-2xl mx-auto mb-8">Nossa equipe de especialistas está pronta para desenvolver a solução ideal para sua empresa.</p>
+            <a href="https://wa.me/5516997918383?text=Olá! Gostaria de uma solução personalizada para minha empresa." target="_blank"
+                class="bg-bordo hover:bg-red-800 text-white px-8 py-3 rounded-lg font-medium transition shadow-lg inline-flex items-center">
+                <i class="fab fa-whatsapp mr-2 text-lg"></i> Fale com nossos especialistas
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="py-16 bg-zinc-800 section-hidden">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-4">Entre em <span class="text-bordo">Contato</span></h2>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Estamos prontos para ajudar sua empresa a encontrar a melhor solução em controle de ponto e acesso.</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-8 max-w-4xl mx-auto">
+                <!-- Contact Info -->
+                <div class="lg:w-1/2">
+                    <h3 class="text-xl font-semibold mb-6 text-white">Nossos Canais</h3>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-bordo p-3 rounded-lg mr-4">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-white">Telefone</h4>
+                                <p class="text-zinc-300">(16) 3011-4096</p>
+                                <p class="text-zinc-300">(16) 99791-8383</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-bordo p-3 rounded-lg mr-4">
+                                <i class="fab fa-whatsapp text-white text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-white">WhatsApp</h4>
+                                <p class="text-zinc-300">(16) 99791-8383</p>
+                                <a href="https://wa.me/5516997918383?text=Olá! Gostaria de informações sobre produtos e serviços." target="_blank"
+                                    class="text-bordo hover:text-red-300 transition inline-flex items-center mt-1">
+                                    Clique para conversar <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-bordo p-3 rounded-lg mr-4">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-white">E-mail</h4>
+                                <p class="text-zinc-300">vendas02@pontosocorro.com.br</p>
+                                <p class="text-zinc-300">suporte@pontosocorro.com.br</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-bordo p-3 rounded-lg mr-4">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-white">Endereço</h4>
+                                <p class="text-zinc-300">Rua Vicente de Carvalho, 710 Vila Seixas, Ribeirão Preto, SP</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-bordo p-3 rounded-lg mr-4">
+                                <i class="fas fa-clock text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-white">Horário de Atendimento</h4>
+                                <p class="text-zinc-300">Segunda a Sexta: 8h às 18h</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WhatsApp CTA -->
+                <div class="lg:w-1/2">
+                    <div class="bg-zinc-900 rounded-xl p-8 h-full flex flex-col justify-center">
+                        <div class="text-center mb-6">
+                            <i class="fab fa-whatsapp text-green-500 text-5xl mb-4"></i>
+                            <h3 class="text-2xl font-bold text-white mb-2">Fale Conosco pelo WhatsApp</h3>
+                            <p class="text-zinc-400">Atendimento rápido e direto para tirar dúvidas e solicitar orçamentos.</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <a href="https://wa.me/5516997918383?text=Olá! Gostaria de solicitar um orçamento." target="_blank"
+                                class="block w-full bg-green-600 hover:bg-green-700 text-white text-center py-3 rounded-lg font-medium transition shadow-md flex items-center justify-center">
+                                <i class="fab fa-whatsapp mr-2 text-lg"></i> Solicitar Orçamento
+                            </a>
+
+                            <a href="https://wa.me/5516997918383?text=Olá! Preciso de suporte técnico." target="_blank"
+                                class="block w-full bg-zinc-700 hover:bg-zinc-600 text-white text-center py-3 rounded-lg font-medium transition flex items-center justify-center">
+                                <i class="fas fa-headset mr-2"></i> Suporte Técnico
+                            </a>
+
+                            <a href="https://wa.me/5516997918383?text=Olá! Gostaria de agendar uma demonstração." target="_blank"
+                                class="block w-full bg-bordo hover:bg-red-800 text-white text-center py-3 rounded-lg font-medium transition flex items-center justify-center">
+                                <i class="fas fa-calendar-alt mr-2"></i> Agendar Demonstração
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-zinc-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center">
+                        <img src="./logo-ponto-socorro.png" alt="Ponto Socorro" class="h-8">
+                    </div>
+                    <p class="text-zinc-400 text-sm mt-2">Soluções em Controle de Ponto e Acesso</p>
+                </div>
+
+                <div class="flex flex-wrap justify-center space-x-6 mb-4 md:mb-0">
+                    <a href="#inicio" class="text-zinc-400 hover:text-white transition mb-2">Início</a>
+                    <a href="#produtos" class="text-zinc-400 hover:text-white transition mb-2">Produtos</a>
+                    <a href="#contato" class="text-zinc-400 hover:text-white transition mb-2">Contato</a>
+                    <a href="#suporte" class="text-zinc-400 hover:text-white transition mb-2">Suporte</a>
+                </div>
+
+                <div class="text-center md:text-right">
+                    <p class="text-zinc-400 text-sm">&copy; 2025 Ponto Socorro. Todos os direitos reservados.</p>
+                    <p class="text-zinc-400 text-sm mt-1">CNPJ: 12.345.678/0001-90</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5516997918383?text=Olá! Gostaria de informações sobre produtos e serviços." target="_blank"
+        class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition z-50 group">
+        <i class="fab fa-whatsapp text-2xl group-hover:scale-110 transition-transform"></i>
+    </a>
+
+    
+
+    <script>
+        // ========== CARROSSEL AUTOMÁTICO ==========
+        class Carousel {
+            constructor() {
+                this.currentSlide = 0;
+                this.totalSlides = 4;
+                this.autoPlayInterval = null;
+                this.progressInterval = null;
+                
+                this.init();
+            }
+            
+            init() {
+                this.setupEventListeners();
+                this.startAutoPlay();
+                this.updateIndicators();
+            }
+            
+            setupEventListeners() {
+                // Botões de navegação
+                document.getElementById('prev-slide').addEventListener('click', () => this.prevSlide());
+                document.getElementById('next-slide').addEventListener('click', () => this.nextSlide());
+                
+                // Indicadores
+                document.querySelectorAll('.carousel-indicator').forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => this.goToSlide(index));
+                });
+                
+                // Pausar no hover
+                const carousel = document.getElementById('inicio');
+                carousel.addEventListener('mouseenter', () => this.pauseAutoPlay());
+                carousel.addEventListener('mouseleave', () => this.startAutoPlay());
+            }
+            
+            nextSlide() {
+                this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+                this.updateCarousel();
+            }
+            
+            prevSlide() {
+                this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+                this.updateCarousel();
+            }
+            
+            goToSlide(index) {
+                this.currentSlide = index;
+                this.updateCarousel();
+            }
+            
+            updateCarousel() {
+                // Atualizar slides
+                document.querySelectorAll('.carousel-slide').forEach((slide, index) => {
+                    slide.classList.toggle('active', index === this.currentSlide);
+                });
+                
+                // Atualizar conteúdo
+                document.querySelectorAll('.carousel-content-item').forEach((content, index) => {
+                    content.classList.toggle('active', index === this.currentSlide);
+                });
+                
+                this.updateIndicators();
+            }
+            
+            updateIndicators() {
+                document.querySelectorAll('.carousel-indicator').forEach((indicator, index) => {
+                    if (index === this.currentSlide) {
+                        indicator.classList.add('bg-bordo');
+                        indicator.classList.remove('bg-white/30');
+                        this.startProgressBar(indicator);
+                    } else {
+                        indicator.classList.remove('bg-bordo');
+                        indicator.classList.add('bg-white/30');
+                        this.clearProgressBar(indicator);
+                    }
+                });
+            }
+            
+            startProgressBar(indicator) {
+                this.clearProgressBar(indicator);
+                const progressBar = indicator.querySelector('.carousel-progress');
+                if (progressBar) {
+                    progressBar.style.transition = 'width 5s linear';
+                    progressBar.style.width = '0%';
+                    setTimeout(() => {
+                        progressBar.style.width = '100%';
+                    }, 50);
+                }
+            }
+            
+            clearProgressBar(indicator) {
+                const progressBar = indicator.querySelector('.carousel-progress');
+                if (progressBar) {
+                    progressBar.style.transition = 'none';
+                    progressBar.style.width = '0%';
+                }
+            }
+            
+            startAutoPlay() {
+                this.clearAutoPlay();
+                this.autoPlayInterval = setInterval(() => this.nextSlide(), 5000);
+            }
+            
+            pauseAutoPlay() {
+                this.clearAutoPlay();
+            }
+            
+            clearAutoPlay() {
+                if (this.autoPlayInterval) {
+                    clearInterval(this.autoPlayInterval);
+                    this.autoPlayInterval = null;
+                }
+            }
+        }
+
+        // ========== MENU MOBILE ==========
+        class MobileMenu {
+            constructor() {
+                this.menuButton = document.getElementById('mobile-menu-button');
+                this.mobileMenu = document.getElementById('mobile-menu');
+                this.isOpen = false;
+                
+                this.init();
+            }
+            
+            init() {
+                this.menuButton.addEventListener('click', () => this.toggleMenu());
+                
+                // Dropdowns mobile
+                document.querySelectorAll('.mobile-dropdown-btn').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const content = e.target.nextElementSibling;
+                        content.classList.toggle('open');
+                        e.target.querySelector('i').classList.toggle('fa-chevron-down');
+                        e.target.querySelector('i').classList.toggle('fa-chevron-up');
+                    });
+                });
+                
+                // Fechar menu ao clicar em um link
+                this.mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => this.closeMenu());
+                });
+            }
+            
+            toggleMenu() {
+                this.isOpen ? this.closeMenu() : this.openMenu();
+            }
+            
+            openMenu() {
+                this.mobileMenu.classList.remove('hidden');
+                this.mobileMenu.classList.add('block');
+                this.isOpen = true;
+                document.body.style.overflow = 'hidden';
+            }
+            
+            closeMenu() {
+                this.mobileMenu.classList.remove('block');
+                this.mobileMenu.classList.add('hidden');
+                this.isOpen = false;
+                document.body.style.overflow = '';
+                
+                // Fechar todos os dropdowns
+                document.querySelectorAll('.mobile-dropdown-content').forEach(content => {
+                    content.classList.remove('open');
+                });
+                
+                document.querySelectorAll('.mobile-dropdown-btn i').forEach(icon => {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                });
+            }
+        }
+
+        // ========== PRODUCT TABS ==========
+        class ProductTabs {
+            constructor() {
+                this.tabs = document.querySelectorAll('.product-tab');
+                this.contents = document.querySelectorAll('.product-content');
+                
+                this.init();
+            }
+            
+            init() {
+                this.tabs.forEach(tab => {
+                    tab.addEventListener('click', (e) => {
+                        const tabName = e.target.getAttribute('data-tab');
+                        this.switchTab(tabName);
+                    });
+                });
+            }
+            
+            switchTab(tabName) {
+                // Atualizar tabs
+                this.tabs.forEach(tab => {
+                    if (tab.getAttribute('data-tab') === tabName) {
+                        tab.classList.add('text-bordo', 'border-bordo');
+                        tab.classList.remove('text-zinc-400', 'border-transparent');
+                    } else {
+                        tab.classList.remove('text-bordo', 'border-bordo');
+                        tab.classList.add('text-zinc-400', 'border-transparent');
+                    }
+                });
+                
+                // Atualizar conteúdos
+                this.contents.forEach(content => {
+                    if (content.id === `product-${tabName}`) {
+                        content.classList.remove('hidden');
+                        content.classList.add('active');
+                    } else {
+                        content.classList.add('hidden');
+                        content.classList.remove('active');
+                    }
+                });
+            }
+        }
+
+        // ========== ANIMAÇÕES DE SCROLL ==========
+        class ScrollAnimations {
+            constructor() {
+                this.sections = document.querySelectorAll('.section-hidden');
+                this.fadeElements = document.querySelectorAll('.fade-in');
+                
+                this.init();
+            }
+            
+            init() {
+                // Observer para sections
+                const sectionObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('section-visible');
+                        }
+                    });
+                }, { threshold: 0.1 });
+                
+                this.sections.forEach(section => {
+                    sectionObserver.observe(section);
+                });
+                
+                // Observer para elementos fade-in
+                const fadeObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, { threshold: 0.1 });
+                
+                this.fadeElements.forEach(element => {
+                    fadeObserver.observe(element);
+                });
+            }
+        }
+
+        // ========== ÁREA DO CLIENTE ==========
+        class ClientArea {
+            constructor() {
+                this.rhidButton = document.getElementById('login-rhid');
+                this.secullumButton = document.getElementById('login-secullum');
+                
+                this.init();
+            }
+            
+            init() {
+                this.rhidButton.addEventListener('click', () => this.openRHID());
+                this.secullumButton.addEventListener('click', () => this.openSecullum());
+            }
+            
+            openRHID() {
+                // Simulação de abertura do RHID
+                alert('Redirecionando para o sistema RHID...\n\nEm uma implementação real, isso abriria o formulário de login do RHID.');
+                // window.open('URL_DO_RHID', '_blank');
+            }
+            
+            openSecullum() {
+                // Simulação de abertura do Secullum
+                alert('Redirecionando para o sistema Secullum...\n\nEm uma implementação real, isso abriria o formulário de login do Secullum.');
+                // window.open('URL_DO_SECULLUM', '_blank');
+            }
+        }
+
+        // ========== HEADER SCROLL ==========
+        class HeaderScroll {
+            constructor() {
+                this.header = document.getElementById('main-header');
+                this.lastScrollY = window.scrollY;
+                
+                this.init();
+            }
+            
+            init() {
+                window.addEventListener('scroll', () => this.handleScroll());
+            }
+            
+            handleScroll() {
+                const currentScrollY = window.scrollY;
+                
+                if (currentScrollY > 100) {
+                    this.header.classList.add('bg-zinc-900/95', 'backdrop-blur-sm');
+                    this.header.classList.remove('bg-zinc-800');
+                } else {
+                    this.header.classList.remove('bg-zinc-900/95', 'backdrop-blur-sm');
+                    this.header.classList.add('bg-zinc-800');
+                }
+                
+                this.lastScrollY = currentScrollY;
+            }
+        }
+
+        // ========== INICIALIZAÇÃO ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            new Carousel();
+            new MobileMenu();
+            new ProductTabs();
+            new ScrollAnimations();
+            new ClientArea();
+            new HeaderScroll();
+            
+            // Smooth scroll para links internos
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
