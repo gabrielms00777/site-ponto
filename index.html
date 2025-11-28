@@ -7,7 +7,9 @@
     <title>Ponto Socorro - Soluções em Relógio de Ponto e Controle de Acesso</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --bordo: #8B0000;
@@ -23,10 +25,15 @@
             scroll-behavior: smooth;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: 'Montserrat', sans-serif;
         }
-        
+
         .bg-bordo {
             background-color: var(--bordo);
         }
@@ -73,6 +80,7 @@
             0% {
                 transform: translateX(0);
             }
+
             100% {
                 transform: translateX(-50%);
             }
@@ -130,59 +138,99 @@
 
                 <!-- Desktop Menu -->
                 <nav class="hidden lg:flex space-x-1">
-                    <a href="#inicio" class="px-4 py-2 text-zinc-300 hover:text-white font-medium transition hover:bg-zinc-700 rounded-lg">Início</a>
+                    <a href="#inicio"
+                        class="px-4 py-2 text-zinc-300 hover:text-white font-medium transition hover:bg-zinc-700 rounded-lg">Início</a>
 
                     <!-- Relógio de Ponto Dropdown -->
                     <div class="relative dropdown">
-                        <button class="px-4 py-2 text-zinc-300 hover:text-white font-medium transition hover:bg-zinc-700 rounded-lg flex items-center">
+                        <button
+                            class="px-4 py-2 text-zinc-300 hover:text-white font-medium transition hover:bg-zinc-700 rounded-lg flex items-center">
                             Relógio de Ponto <i class="fas fa-chevron-down ml-2 text-xs"></i>
                         </button>
                         <div class="dropdown-menu absolute left-0 mt-2 w-64 bg-zinc-800 rounded-lg shadow-xl py-2 z-50">
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Relógio de Ponto Biométrico</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Relógio de Ponto Facial</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Relógio de Ponto por Proximidade</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Relógio de Ponto Cartográfico</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Acessórios para Relógios de Ponto</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Aplicativos</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Relógio
+                                de Ponto Biométrico</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Relógio
+                                de Ponto Facial</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Relógio
+                                de Ponto por Proximidade</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Relógio
+                                de Ponto Cartográfico</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Acessórios
+                                para Relógios de Ponto</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Aplicativos</a>
                         </div>
                     </div>
 
                     <!-- Controle de Acesso Dropdown -->
                     <div class="relative dropdown">
-                        <button class="px-4 py-2 text-zinc-300 hover:text-white font-medium transition hover:bg-zinc-700 rounded-lg flex items-center">
+                        <button
+                            class="px-4 py-2 text-zinc-300 hover:text-white font-medium transition hover:bg-zinc-700 rounded-lg flex items-center">
                             Controle de Acesso <i class="fas fa-chevron-down ml-2 text-xs"></i>
                         </button>
                         <div class="dropdown-menu absolute left-0 mt-2 w-64 bg-zinc-800 rounded-lg shadow-xl py-2 z-50">
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Controle de Acesso Facial</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Controle de Acesso Biométrico</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Controle de Acesso por Proximidade</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Controle de Acesso Antena UHF</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Catracas de Acesso</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Torniquetes</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Cancelas</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Aplicativos</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Controle
+                                de Acesso Facial</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Controle
+                                de Acesso Biométrico</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Controle
+                                de Acesso por Proximidade</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Controle
+                                de Acesso Antena UHF</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Catracas
+                                de Acesso</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Torniquetes</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Cancelas</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Aplicativos</a>
                         </div>
                     </div>
 
                     <!-- Automação Comercial Dropdown -->
                     <div class="relative dropdown">
-                        <button class="px-4 py-2 text-zinc-300 hover:text-white font-medium transition hover:bg-zinc-700 rounded-lg flex items-center">
+                        <button
+                            class="px-4 py-2 text-zinc-300 hover:text-white font-medium transition hover:bg-zinc-700 rounded-lg flex items-center">
                             Automação Comercial <i class="fas fa-chevron-down ml-2 text-xs"></i>
                         </button>
                         <div class="dropdown-menu absolute left-0 mt-2 w-64 bg-zinc-800 rounded-lg shadow-xl py-2 z-50">
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Impressora Térmica de Cupom</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Leitor Biométrico USB</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">SAT Fiscal</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Impressora
+                                Térmica de Cupom</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">Leitor
+                                Biométrico USB</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition">SAT
+                                Fiscal</a>
                         </div>
                     </div>
 
-                    <a href="#suporte" class="px-4 py-2 text-zinc-300 hover:text-white font-medium transition hover:bg-zinc-700 rounded-lg">Suporte</a>
-                    
-                    <a href="#sobre" class="px-4 py-2 text-zinc-300 hover:text-white font-medium transition hover:bg-zinc-700 rounded-lg">Sobre</a>
-                    
-                    <a href="#central-rh" class="px-4 py-2 text-zinc-300 hover:text-white font-medium transition hover:bg-zinc-700 rounded-lg">Central do RH</a>
-                    
-                    <a href="#area-cliente" class="px-4 py-2 text-zinc-300 hover:text-white font-medium transition hover:bg-zinc-700 rounded-lg">Área do Cliente</a>
+                    <a href="#suporte"
+                        class="px-4 py-2 text-zinc-300 hover:text-white font-medium transition hover:bg-zinc-700 rounded-lg">Suporte</a>
+
+                    <a href="#sobre"
+                        class="px-4 py-2 text-zinc-300 hover:text-white font-medium transition hover:bg-zinc-700 rounded-lg">Sobre</a>
+
+                    <a href="#central-rh"
+                        class="px-4 py-2 text-zinc-300 hover:text-white font-medium transition hover:bg-zinc-700 rounded-lg">Central
+                        do RH</a>
+
+                    <a href="#area-cliente"
+                        class="px-4 py-2 text-zinc-300 hover:text-white font-medium transition hover:bg-zinc-700 rounded-lg">Área
+                        do Cliente</a>
                 </nav>
 
                 <!-- CTA Button -->
@@ -202,56 +250,89 @@
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="lg:hidden bg-zinc-800 py-4 px-2 shadow-lg rounded-lg mt-3 hidden">
                 <div class="flex flex-col space-y-2">
-                    <a href="#inicio" class="text-zinc-300 hover:text-white hover:bg-zinc-700 font-medium py-2 px-4 rounded transition">Início</a>
+                    <a href="#inicio"
+                        class="text-zinc-300 hover:text-white hover:bg-zinc-700 font-medium py-2 px-4 rounded transition">Início</a>
 
                     <!-- Mobile Relógio de Ponto Dropdown -->
                     <div class="relative">
-                        <button class="mobile-dropdown-btn w-full text-left text-zinc-300 hover:text-white hover:bg-zinc-700 font-medium py-2 px-4 rounded transition flex justify-between items-center">
+                        <button
+                            class="mobile-dropdown-btn w-full text-left text-zinc-300 hover:text-white hover:bg-zinc-700 font-medium py-2 px-4 rounded transition flex justify-between items-center">
                             Relógio de Ponto <i class="fas fa-chevron-down text-xs"></i>
                         </button>
                         <div class="mobile-dropdown-content ml-4 mt-1 bg-zinc-700 rounded-lg py-2">
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Biométrico</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Facial</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Por Proximidade</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Cartográfico</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Acessórios</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Aplicativos</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Biométrico</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Facial</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Por
+                                Proximidade</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Cartográfico</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Acessórios</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Aplicativos</a>
                         </div>
                     </div>
 
                     <!-- Mobile Controle de Acesso Dropdown -->
                     <div class="relative">
-                        <button class="mobile-dropdown-btn w-full text-left text-zinc-300 hover:text-white hover:bg-zinc-700 font-medium py-2 px-4 rounded transition flex justify-between items-center">
+                        <button
+                            class="mobile-dropdown-btn w-full text-left text-zinc-300 hover:text-white hover:bg-zinc-700 font-medium py-2 px-4 rounded transition flex justify-between items-center">
                             Controle de Acesso <i class="fas fa-chevron-down text-xs"></i>
                         </button>
                         <div class="mobile-dropdown-content ml-4 mt-1 bg-zinc-700 rounded-lg py-2">
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Facial</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Biométrico</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Por Proximidade</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Antena UHF</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Catracas</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Torniquetes</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Cancelas</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Aplicativos</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Facial</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Biométrico</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Por
+                                Proximidade</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Antena
+                                UHF</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Catracas</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Torniquetes</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Cancelas</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Aplicativos</a>
                         </div>
                     </div>
 
                     <!-- Mobile Automação Comercial Dropdown -->
                     <div class="relative">
-                        <button class="mobile-dropdown-btn w-full text-left text-zinc-300 hover:text-white hover:bg-zinc-700 font-medium py-2 px-4 rounded transition flex justify-between items-center">
+                        <button
+                            class="mobile-dropdown-btn w-full text-left text-zinc-300 hover:text-white hover:bg-zinc-700 font-medium py-2 px-4 rounded transition flex justify-between items-center">
                             Automação Comercial <i class="fas fa-chevron-down text-xs"></i>
                         </button>
                         <div class="mobile-dropdown-content ml-4 mt-1 bg-zinc-700 rounded-lg py-2">
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Impressora Térmica</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Leitor Biométrico USB</a>
-                            <a href="#" class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">SAT Fiscal</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Impressora
+                                Térmica</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">Leitor
+                                Biométrico USB</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-zinc-300 hover:bg-bordo hover:text-white transition text-sm">SAT
+                                Fiscal</a>
                         </div>
                     </div>
 
-                    <a href="#suporte" class="text-zinc-300 hover:text-white hover:bg-zinc-700 font-medium py-2 px-4 rounded transition">Suporte</a>
-                    <a href="#sobre" class="text-zinc-300 hover:text-white hover:bg-zinc-700 font-medium py-2 px-4 rounded transition">Sobre</a>
-                    <a href="#central-rh" class="text-zinc-300 hover:text-white hover:bg-zinc-700 font-medium py-2 px-4 rounded transition">Central do RH</a>
-                    <a href="#area-cliente" class="text-zinc-300 hover:text-white hover:bg-zinc-700 font-medium py-2 px-4 rounded transition">Área do Cliente</a>
+                    <a href="#suporte"
+                        class="text-zinc-300 hover:text-white hover:bg-zinc-700 font-medium py-2 px-4 rounded transition">Suporte</a>
+                    <a href="#sobre"
+                        class="text-zinc-300 hover:text-white hover:bg-zinc-700 font-medium py-2 px-4 rounded transition">Sobre</a>
+                    <a href="#central-rh"
+                        class="text-zinc-300 hover:text-white hover:bg-zinc-700 font-medium py-2 px-4 rounded transition">Central
+                        do RH</a>
+                    <a href="#area-cliente"
+                        class="text-zinc-300 hover:text-white hover:bg-zinc-700 font-medium py-2 px-4 rounded transition">Área
+                        do Cliente</a>
 
                     <a href="https://wa.me/5516997918383?text=Olá! Gostaria de solicitar um orçamento." target="_blank"
                         class="bg-bordo hover:bg-red-800 text-white text-center py-2 rounded-lg font-medium transition mt-2">
@@ -266,44 +347,59 @@
     <section id="inicio" class="relative overflow-hidden bg-zinc-900 text-white min-h-screen flex items-center">
         <!-- Background Images -->
         <div id="carousel-slides" class="absolute inset-0">
-            <!-- Slide 1 - Sistema Secullum -->
+
+            <!-- Slide 1 - Relógios de Ponto -->
             <div class="carousel-slide active absolute inset-0 z-0">
-                <div class="absolute inset-0 bg-cover bg-center md:bg-right bg-no-repeat" style="background-image: url('./secullum.png')">
-                    <div class="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-900/80 to-transparent md:via-zinc-900/70"></div>
+                <div class="absolute inset-0 bg-cover bg-center md:bg-right bg-no-repeat"
+                    style="background-image: url('./faciais.png')">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-900/80 to-transparent md:via-zinc-900/70">
+                    </div>
                 </div>
             </div>
-            
-            <!-- Slide 2 - Relógios de Ponto -->
+
+            <!-- Slide 2 - Sistema Secullum -->
             <div class="carousel-slide absolute inset-0 z-0 opacity-0 transition-opacity duration-700">
-                <div class="absolute inset-0 bg-cover bg-center md:bg-right bg-no-repeat" style="background-image: url('./faciais.png')">
-                    <div class="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-900/80 to-transparent md:via-zinc-900/70"></div>
+                <div class="absolute inset-0 bg-cover bg-center md:bg-right bg-no-repeat"
+                    style="background-image: url('./secullum.png')">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-900/80 to-transparent md:via-zinc-900/70">
+                    </div>
                 </div>
             </div>
-            
+
             <!-- Slide 3 - Catracas -->
             <div class="carousel-slide absolute inset-0 z-0 opacity-0 transition-opacity duration-700">
-                <div class="absolute inset-0 bg-cover bg-center md:bg-right bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')">
-                    <div class="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-900/80 to-transparent md:via-zinc-900/70"></div>
+                <div class="absolute inset-0 bg-cover bg-center md:bg-right bg-no-repeat"
+                    style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-900/80 to-transparent md:via-zinc-900/70">
+                    </div>
                 </div>
             </div>
-            
+
             <!-- Slide 4 - Torniquetes e Cancelas -->
             <div class="carousel-slide absolute inset-0 z-0 opacity-0 transition-opacity duration-700">
-                <div class="absolute inset-0 bg-cover bg-center md:bg-right bg-no-repeat" style="background-image: url('https://pontosocorro.com.br/wp-content/uploads/2025/03/slide-controle-de-ponto.webp')">
-                    <div class="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-900/80 to-transparent md:via-zinc-900/70"></div>
+                <div class="absolute inset-0 bg-cover bg-center md:bg-right bg-no-repeat"
+                    style="background-image: url('https://pontosocorro.com.br/wp-content/uploads/2025/03/slide-controle-de-ponto.webp')">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-900/80 to-transparent md:via-zinc-900/70">
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Navigation Arrows -->
         <div class="absolute inset-y-0 left-2 md:left-4 flex items-center z-20">
-            <button id="prev-slide" class="p-2 md:p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-300 transform hover:scale-110">
+            <button id="prev-slide"
+                class="p-2 md:p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-300 transform hover:scale-110">
                 <i class="fas fa-chevron-left text-white text-lg md:text-xl"></i>
             </button>
         </div>
 
         <div class="absolute inset-y-0 right-2 md:right-4 flex items-center z-20">
-            <button id="next-slide" class="p-2 md:p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-300 transform hover:scale-110">
+            <button id="next-slide"
+                class="p-2 md:p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-300 transform hover:scale-110">
                 <i class="fas fa-chevron-right text-white text-lg md:text-xl"></i>
             </button>
         </div>
@@ -315,13 +411,15 @@
                 <div class="min-h-[50vh] md:min-h-[60vh] flex items-center py-8 md:py-0">
                     <div id="carousel-content" class="relative w-full px-4">
                         <!-- Slide 1 Content -->
-                        <div class="carousel-content-item active absolute w-full space-y-6 md:space-y-8 opacity-100 transition-opacity duration-700">
+                        <div
+                            class="carousel-content-item active absolute w-full space-y-6 md:space-y-8 opacity-100 transition-opacity duration-700">
                             <div class="space-y-4 md:space-y-6">
                                 <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight md:leading-tight">
                                     Sistema <span class="text-bordo">Secullum</span><br>Gestão Completa
                                 </h1>
                                 <p class="text-base md:text-lg text-zinc-300 max-w-lg leading-relaxed">
-                                    Solução inteligente para controle de jornadas que automatiza o registro e cálculo de ponto dos colaboradores.
+                                    Solução inteligente para controle de jornadas que automatiza o registro e cálculo de
+                                    ponto dos colaboradores.
                                 </p>
                             </div>
                             <div class="flex flex-col sm:flex-row gap-4 md:gap-6">
@@ -338,13 +436,15 @@
                         </div>
 
                         <!-- Slide 2 Content -->
-                        <div class="carousel-content-item absolute w-full space-y-6 md:space-y-8 opacity-0 transition-opacity duration-700">
+                        <div
+                            class="carousel-content-item absolute w-full space-y-6 md:space-y-8 opacity-0 transition-opacity duration-700">
                             <div class="space-y-4 md:space-y-6">
                                 <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight md:leading-tight">
                                     Relógios de <span class="text-bordo">Ponto</span><br>Tecnologia Avançada
                                 </h1>
                                 <p class="text-base md:text-lg text-zinc-300 max-w-lg leading-relaxed">
-                                    Modelos biométricos, de reconhecimento facial e por proximidade com máxima precisão e segurança.
+                                    Modelos biométricos, de reconhecimento facial e por proximidade com máxima precisão
+                                    e segurança.
                                 </p>
                             </div>
                             <div class="flex flex-col sm:flex-row gap-4 md:gap-6">
@@ -361,7 +461,8 @@
                         </div>
 
                         <!-- Slide 3 Content -->
-                        <div class="carousel-content-item absolute w-full space-y-6 md:space-y-8 opacity-0 transition-opacity duration-700">
+                        <div
+                            class="carousel-content-item absolute w-full space-y-6 md:space-y-8 opacity-0 transition-opacity duration-700">
                             <div class="space-y-4 md:space-y-6">
                                 <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight md:leading-tight">
                                     <span class="text-bordo">Catracas</span> de Acesso<br>Segurança e Controle
@@ -384,13 +485,15 @@
                         </div>
 
                         <!-- Slide 4 Content -->
-                        <div class="carousel-content-item absolute w-full space-y-6 md:space-y-8 opacity-0 transition-opacity duration-700">
+                        <div
+                            class="carousel-content-item absolute w-full space-y-6 md:space-y-8 opacity-0 transition-opacity duration-700">
                             <div class="space-y-4 md:space-y-6">
                                 <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight md:leading-tight">
                                     <span class="text-bordo">Torniquetes</span> e Cancelas<br>Controle Total
                                 </h1>
                                 <p class="text-base md:text-lg text-zinc-300 max-w-lg leading-relaxed">
-                                    Sistemas avançados para controle de fluxo de pessoas e veículos em qualquer ambiente.
+                                    Sistemas avançados para controle de fluxo de pessoas e veículos em qualquer
+                                    ambiente.
                                 </p>
                             </div>
                             <div class="flex flex-col sm:flex-row gap-4 md:gap-6">
@@ -511,7 +614,8 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-8">
                 <h2 class="text-2xl font-bold text-white mb-2">Nossos <span class="text-bordo">Parceiros</span></h2>
-                <p class="text-zinc-400 max-w-2xl mx-auto">Trabalhamos com as melhores marcas do mercado para oferecer qualidade e confiabilidade</p>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Trabalhamos com as melhores marcas do mercado para oferecer
+                    qualidade e confiabilidade</p>
             </div>
 
             <div class="logo-scroll-container">
@@ -612,8 +716,10 @@
     <section class="py-16 bg-zinc-800 section-hidden">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-white mb-4">Por que escolher a <span class="text-bordo">Ponto Socorro</span>?</h2>
-                <p class="text-zinc-400 max-w-2xl mx-auto">Somos especialistas em controle de ponto e acesso, oferecendo soluções que combinam tecnologia avançada com suporte especializado.</p>
+                <h2 class="text-3xl font-bold text-white mb-4">Por que escolher a <span class="text-bordo">Ponto
+                        Socorro</span>?</h2>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Somos especialistas em controle de ponto e acesso, oferecendo
+                    soluções que combinam tecnologia avançada com suporte especializado.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -622,7 +728,8 @@
                         <i class="fas fa-shield-alt text-red-300 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-white mb-2">Conformidade Trabalhista</h3>
-                    <p class="text-zinc-400">Nossos sistemas atendem todas as exigências legais, incluindo Portaria 671, garantindo segurança jurídica para sua empresa.</p>
+                    <p class="text-zinc-400">Nossos sistemas atendem todas as exigências legais, incluindo Portaria 671,
+                        garantindo segurança jurídica para sua empresa.</p>
                 </div>
 
                 <div class="bg-zinc-700 p-6 rounded-xl border border-zinc-600 text-center card-hover fade-in">
@@ -630,7 +737,8 @@
                         <i class="fas fa-headset text-red-300 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-white mb-2">Suporte Especializado</h3>
-                    <p class="text-zinc-400">Equipe técnica preparada para oferecer suporte remoto e presencial em todo Brasil quando necessário.</p>
+                    <p class="text-zinc-400">Equipe técnica preparada para oferecer suporte remoto e presencial em todo
+                        Brasil quando necessário.</p>
                 </div>
 
                 <div class="bg-zinc-700 p-6 rounded-xl border border-zinc-600 text-center card-hover fade-in">
@@ -638,7 +746,8 @@
                         <i class="fas fa-bolt text-red-300 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-white mb-2">Tecnologia Avançada</h3>
-                    <p class="text-zinc-400">Utilizamos as mais modernas tecnologias em biometria, reconhecimento facial e controle de acesso.</p>
+                    <p class="text-zinc-400">Utilizamos as mais modernas tecnologias em biometria, reconhecimento facial
+                        e controle de acesso.</p>
                 </div>
             </div>
         </div>
@@ -649,38 +758,50 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-white mb-4">Nossos <span class="text-bordo">Produtos</span></h2>
-                <p class="text-zinc-400 max-w-2xl mx-auto">Conheça nossa linha completa de equipamentos para controle de ponto e acesso.</p>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Conheça nossa linha completa de equipamentos para controle de
+                    ponto e acesso.</p>
             </div>
 
             <!-- Product Tabs -->
             <div class="flex flex-wrap justify-center mb-8 border-b border-zinc-700">
-                <button class="product-tab px-4 py-2 font-medium border-b-2 transition text-bordo border-bordo" data-tab="biometrico">
+                <button class="product-tab px-4 py-2 font-medium border-b-2 transition text-bordo border-bordo"
+                    data-tab="biometrico">
                     Biométricos
                 </button>
-                <button class="product-tab px-4 py-2 font-medium border-b-2 transition text-zinc-400 border-transparent hover:text-zinc-300" data-tab="facial">
+                <button
+                    class="product-tab px-4 py-2 font-medium border-b-2 transition text-zinc-400 border-transparent hover:text-zinc-300"
+                    data-tab="facial">
                     Reconhecimento Facial
                 </button>
-                <button class="product-tab px-4 py-2 font-medium border-b-2 transition text-zinc-400 border-transparent hover:text-zinc-300" data-tab="proximidade">
+                <button
+                    class="product-tab px-4 py-2 font-medium border-b-2 transition text-zinc-400 border-transparent hover:text-zinc-300"
+                    data-tab="proximidade">
                     Proximidade
                 </button>
-                <button class="product-tab px-4 py-2 font-medium border-b-2 transition text-zinc-400 border-transparent hover:text-zinc-300" data-tab="catracas">
+                <button
+                    class="product-tab px-4 py-2 font-medium border-b-2 transition text-zinc-400 border-transparent hover:text-zinc-300"
+                    data-tab="catracas">
                     Catracas e Torniquetes
                 </button>
             </div>
 
             <!-- Product Content -->
-            <div id="product-biometrico" class="product-content active grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div id="product-biometrico"
+                class="product-content active grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Product 1 -->
-                <div class="bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 transition card-hover fade-in">
+                <div
+                    class="bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 transition card-hover fade-in">
                     <div class="h-48 bg-zinc-900 flex items-center justify-center relative p-3">
-                        <img src="https://www.controlid.com.br/assets/images/relogio-de-ponto/rep-idclass-frontal-bio.webp" alt="Relógio de Ponto REP iDClass Bio" class="mt-4 max-h-full max-w-full object-contain">
+                        <img src="https://www.controlid.com.br/assets/images/relogio-de-ponto/rep-idclass-frontal-bio.webp"
+                            alt="Relógio de Ponto REP iDClass Bio" class="mt-4 max-h-full max-w-full object-contain">
                         <div class="absolute top-4 right-4 bg-bordo text-white py-1 px-2 rounded text-xs font-medium">
                             Mais Vendido
                         </div>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-white mb-2">REP iDClass Bio</h3>
-                        <p class="text-zinc-400 mb-4">Com um design compacto, inovador e robusto, a Control iD apresenta o Relógio de Ponto iDClass Bio.</p>
+                        <p class="text-zinc-400 mb-4">Com um design compacto, inovador e robusto, a Control iD apresenta
+                            o Relógio de Ponto iDClass Bio.</p>
                         <ul class="text-zinc-400 mb-4 space-y-2">
                             <li class="flex items-start">
                                 <i class="fas fa-check text-bordo mr-2 mt-1"></i>
@@ -695,7 +816,8 @@
                                 <span>Bateria interna para emergências</span>
                             </li>
                         </ul>
-                        <a href="https://wa.me/5516997918383?text=Olá! Gostaria de solicitar orçamento para o REP iDClass Bio." target="_blank"
+                        <a href="https://wa.me/5516997918383?text=Olá! Gostaria de solicitar orçamento para o REP iDClass Bio."
+                            target="_blank"
                             class="block w-full bg-bordo hover:bg-red-800 text-white text-center py-2 rounded-lg font-medium transition flex items-center justify-center">
                             <i class="fab fa-whatsapp mr-2"></i> Solicitar Orçamento
                         </a>
@@ -703,13 +825,15 @@
                 </div>
 
                 <!-- Product 2 -->
-                <div class="bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 transition card-hover fade-in">
+                <div
+                    class="bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 transition card-hover fade-in">
                     <div class="h-48 bg-zinc-900 flex items-center justify-center">
                         <i class="fas fa-fingerprint text-bordo text-6xl"></i>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-white mb-2">REP 3500 Biométrico</h3>
-                        <p class="text-zinc-400 mb-4">Modelo avançado com sensor capacitivo, maior precisão e capacidade para até 5.000 digitais.</p>
+                        <p class="text-zinc-400 mb-4">Modelo avançado com sensor capacitivo, maior precisão e capacidade
+                            para até 5.000 digitais.</p>
                         <ul class="text-zinc-400 mb-4 space-y-2">
                             <li class="flex items-start">
                                 <i class="fas fa-check text-bordo mr-2 mt-1"></i>
@@ -724,7 +848,8 @@
                                 <span>Comunicação Wi-Fi e Ethernet</span>
                             </li>
                         </ul>
-                        <a href="https://wa.me/5516997918383?text=Olá! Gostaria de solicitar orçamento para o REP 3500 Biométrico." target="_blank"
+                        <a href="https://wa.me/5516997918383?text=Olá! Gostaria de solicitar orçamento para o REP 3500 Biométrico."
+                            target="_blank"
                             class="block w-full bg-bordo hover:bg-red-800 text-white text-center py-2 rounded-lg font-medium transition flex items-center justify-center">
                             <i class="fab fa-whatsapp mr-2"></i> Solicitar Orçamento
                         </a>
@@ -732,13 +857,15 @@
                 </div>
 
                 <!-- Product 3 -->
-                <div class="bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 transition card-hover fade-in">
+                <div
+                    class="bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 transition card-hover fade-in">
                     <div class="h-48 bg-zinc-900 flex items-center justify-center">
                         <i class="fas fa-fingerprint text-bordo text-6xl"></i>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-white mb-2">REP 1500 Biométrico</h3>
-                        <p class="text-zinc-400 mb-4">Modelo econômico com ótimo custo-benefício, ideal para pequenas e médias empresas.</p>
+                        <p class="text-zinc-400 mb-4">Modelo econômico com ótimo custo-benefício, ideal para pequenas e
+                            médias empresas.</p>
                         <ul class="text-zinc-400 mb-4 space-y-2">
                             <li class="flex items-start">
                                 <i class="fas fa-check text-bordo mr-2 mt-1"></i>
@@ -753,7 +880,8 @@
                                 <span>Comunicação USB</span>
                             </li>
                         </ul>
-                        <a href="https://wa.me/5516997918383?text=Olá! Gostaria de solicitar orçamento para o REP 1500 Biométrico." target="_blank"
+                        <a href="https://wa.me/5516997918383?text=Olá! Gostaria de solicitar orçamento para o REP 1500 Biométrico."
+                            target="_blank"
                             class="block w-full bg-bordo hover:bg-red-800 text-white text-center py-2 rounded-lg font-medium transition flex items-center justify-center">
                             <i class="fab fa-whatsapp mr-2"></i> Solicitar Orçamento
                         </a>
@@ -763,24 +891,30 @@
 
             <!-- Other product tabs -->
             <div id="product-facial" class="product-content hidden text-center py-12">
-                <p class="text-zinc-400">Conteúdo para <span class="font-semibold text-white">Reconhecimento Facial</span> em desenvolvimento.</p>
-                <a href="https://wa.me/5516997918383?text=Olá! Gostaria de informações sobre produtos de reconhecimento facial." target="_blank"
+                <p class="text-zinc-400">Conteúdo para <span class="font-semibold text-white">Reconhecimento
+                        Facial</span> em desenvolvimento.</p>
+                <a href="https://wa.me/5516997918383?text=Olá! Gostaria de informações sobre produtos de reconhecimento facial."
+                    target="_blank"
                     class="inline-block mt-4 bg-bordo hover:bg-red-800 text-white px-6 py-2 rounded-lg font-medium transition">
                     <i class="fab fa-whatsapp mr-2"></i> Entre em contato para mais informações
                 </a>
             </div>
 
             <div id="product-proximidade" class="product-content hidden text-center py-12">
-                <p class="text-zinc-400">Conteúdo para <span class="font-semibold text-white">Proximidade</span> em desenvolvimento.</p>
-                <a href="https://wa.me/5516997918383?text=Olá! Gostaria de informações sobre produtos de proximidade." target="_blank"
+                <p class="text-zinc-400">Conteúdo para <span class="font-semibold text-white">Proximidade</span> em
+                    desenvolvimento.</p>
+                <a href="https://wa.me/5516997918383?text=Olá! Gostaria de informações sobre produtos de proximidade."
+                    target="_blank"
                     class="inline-block mt-4 bg-bordo hover:bg-red-800 text-white px-6 py-2 rounded-lg font-medium transition">
                     <i class="fab fa-whatsapp mr-2"></i> Entre em contato para mais informações
                 </a>
             </div>
 
             <div id="product-catracas" class="product-content hidden text-center py-12">
-                <p class="text-zinc-400">Conteúdo para <span class="font-semibold text-white">Catracas e Torniquetes</span> em desenvolvimento.</p>
-                <a href="https://wa.me/5516997918383?text=Olá! Gostaria de informações sobre catracas e torniquetes." target="_blank"
+                <p class="text-zinc-400">Conteúdo para <span class="font-semibold text-white">Catracas e
+                        Torniquetes</span> em desenvolvimento.</p>
+                <a href="https://wa.me/5516997918383?text=Olá! Gostaria de informações sobre catracas e torniquetes."
+                    target="_blank"
                     class="inline-block mt-4 bg-bordo hover:bg-red-800 text-white px-6 py-2 rounded-lg font-medium transition">
                     <i class="fab fa-whatsapp mr-2"></i> Entre em contato para mais informações
                 </a>
@@ -793,7 +927,8 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-white mb-4">Central do <span class="text-bordo">RH</span></h2>
-                <p class="text-zinc-400 max-w-2xl mx-auto">Uma plataforma completa com ferramentas estratégicas para impulsionar a gestão de Recursos Humanos.</p>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Uma plataforma completa com ferramentas estratégicas para
+                    impulsionar a gestão de Recursos Humanos.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -810,7 +945,8 @@
                         <i class="fas fa-users text-red-300 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-white mb-2">Gestão de Pessoas</h3>
-                    <p class="text-zinc-400">Facilite o dia a dia do RH e dos colaboradores com ferramentas intuitivas.</p>
+                    <p class="text-zinc-400">Facilite o dia a dia do RH e dos colaboradores com ferramentas intuitivas.
+                    </p>
                 </div>
 
                 <div class="bg-zinc-700 p-6 rounded-xl border border-zinc-600 text-center card-hover fade-in">
@@ -836,7 +972,8 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-white mb-4">Área do <span class="text-bordo">Cliente</span></h2>
-                <p class="text-zinc-400 max-w-2xl mx-auto">Acesso centralizado aos sistemas RHID e Secullum em um ambiente exclusivo e seguro.</p>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Acesso centralizado aos sistemas RHID e Secullum em um
+                    ambiente exclusivo e seguro.</p>
             </div>
 
             <div class="max-w-md mx-auto bg-zinc-800 rounded-xl p-8">
@@ -847,17 +984,20 @@
                 </div>
 
                 <div class="space-y-4">
-                    <button id="login-rhid" class="w-full bg-bordo hover:bg-red-800 text-white text-center py-3 rounded-lg font-medium transition shadow-md flex items-center justify-center">
+                    <button id="login-rhid"
+                        class="w-full bg-bordo hover:bg-red-800 text-white text-center py-3 rounded-lg font-medium transition shadow-md flex items-center justify-center">
                         <i class="fas fa-sign-in-alt mr-2"></i> Acessar RHID
                     </button>
 
-                    <button id="login-secullum" class="w-full bg-zinc-700 hover:bg-zinc-600 text-white text-center py-3 rounded-lg font-medium transition flex items-center justify-center">
+                    <button id="login-secullum"
+                        class="w-full bg-zinc-700 hover:bg-zinc-600 text-white text-center py-3 rounded-lg font-medium transition flex items-center justify-center">
                         <i class="fas fa-sign-in-alt mr-2"></i> Acessar Secullum
                     </button>
                 </div>
 
                 <div class="mt-6 text-center">
-                    <p class="text-zinc-400 text-sm">Problemas com acesso? <a href="#suporte" class="text-bordo hover:text-red-300 transition">Entre em contato com o suporte</a></p>
+                    <p class="text-zinc-400 text-sm">Problemas com acesso? <a href="#suporte"
+                            class="text-bordo hover:text-red-300 transition">Entre em contato com o suporte</a></p>
                 </div>
             </div>
         </div>
@@ -868,7 +1008,8 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-white mb-4">Suporte <span class="text-bordo">Técnico</span></h2>
-                <p class="text-zinc-400 max-w-2xl mx-auto">Estamos prontos para ajudar com manuais, tutoriais e atendimento remoto.</p>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Estamos prontos para ajudar com manuais, tutoriais e
+                    atendimento remoto.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -919,10 +1060,13 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row items-center gap-12">
                 <div class="lg:w-1/2">
-                    <h2 class="text-3xl font-bold text-white mb-4">Sobre a <span class="text-bordo">Ponto Socorro</span></h2>
+                    <h2 class="text-3xl font-bold text-white mb-4">Sobre a <span class="text-bordo">Ponto Socorro</span>
+                    </h2>
                     <p class="text-zinc-400 mb-6">
-                        Há anos no mercado, a Ponto Socorro se consolidou como referência em soluções para controle de ponto e acesso. 
-                        Nossa missão é oferecer tecnologia avançada com suporte especializado, garantindo conformidade trabalhista e 
+                        Há anos no mercado, a Ponto Socorro se consolidou como referência em soluções para controle de
+                        ponto e acesso.
+                        Nossa missão é oferecer tecnologia avançada com suporte especializado, garantindo conformidade
+                        trabalhista e
                         segurança para empresas de todos os portes.
                     </p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -930,14 +1074,16 @@
                             <i class="fas fa-check text-bordo mt-1 mr-3"></i>
                             <div>
                                 <h4 class="font-semibold text-white">Missão</h4>
-                                <p class="text-zinc-400 text-sm">Oferecer as melhores soluções em controle de ponto e acesso</p>
+                                <p class="text-zinc-400 text-sm">Oferecer as melhores soluções em controle de ponto e
+                                    acesso</p>
                             </div>
                         </div>
                         <div class="flex items-start">
                             <i class="fas fa-check text-bordo mt-1 mr-3"></i>
                             <div>
                                 <h4 class="font-semibold text-white">Visão</h4>
-                                <p class="text-zinc-400 text-sm">Ser referência nacional em tecnologia para gestão de pessoas</p>
+                                <p class="text-zinc-400 text-sm">Ser referência nacional em tecnologia para gestão de
+                                    pessoas</p>
                             </div>
                         </div>
                     </div>
@@ -946,19 +1092,24 @@
                     <div class="mt-8">
                         <h4 class="font-semibold text-white mb-4">Siga nossas redes sociais</h4>
                         <div class="flex space-x-4">
-                            <a href="#" class="text-zinc-400 hover:text-blue-400 transition"><i class="fab fa-facebook text-2xl"></i></a>
-                            <a href="#" class="text-zinc-400 hover:text-pink-500 transition"><i class="fab fa-instagram text-2xl"></i></a>
-                            <a href="#" class="text-zinc-400 hover:text-blue-300 transition"><i class="fab fa-linkedin text-2xl"></i></a>
-                            <a href="#" class="text-zinc-400 hover:text-red-500 transition"><i class="fab fa-youtube text-2xl"></i></a>
-                            <a href="#" class="text-zinc-400 hover:text-black transition"><i class="fab fa-tiktok text-2xl"></i></a>
+                            <a href="#" class="text-zinc-400 hover:text-blue-400 transition"><i
+                                    class="fab fa-facebook text-2xl"></i></a>
+                            <a href="#" class="text-zinc-400 hover:text-pink-500 transition"><i
+                                    class="fab fa-instagram text-2xl"></i></a>
+                            <a href="#" class="text-zinc-400 hover:text-blue-300 transition"><i
+                                    class="fab fa-linkedin text-2xl"></i></a>
+                            <a href="#" class="text-zinc-400 hover:text-red-500 transition"><i
+                                    class="fab fa-youtube text-2xl"></i></a>
+                            <a href="#" class="text-zinc-400 hover:text-black transition"><i
+                                    class="fab fa-tiktok text-2xl"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="lg:w-1/2">
                     <div class="bg-zinc-800 rounded-xl p-6">
                         <!-- <img src="https://images.unsplash.com/photo-1568992688065-536aad8a12f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"  -->
-                        <img src="./fachada.png" 
-                             alt="Fachada Ponto Socorro" class="w-full h-64 object-cover rounded-lg mb-4">
+                        <img src="./fachada.png" alt="Fachada Ponto Socorro"
+                            class="w-full h-64 object-cover rounded-lg mb-4">
                         <p class="text-zinc-400 text-sm text-center">Nossa sede em Ribeirão Preto/SP</p>
                     </div>
                 </div>
@@ -1060,8 +1211,10 @@
     <section class="py-16 bg-gradient-to-r from-zinc-900 to-[#8B0000]/30 section-hidden">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-3xl font-bold text-white mb-4">Precisa de uma solução personalizada?</h2>
-            <p class="text-zinc-300 max-w-2xl mx-auto mb-8">Nossa equipe de especialistas está pronta para desenvolver a solução ideal para sua empresa.</p>
-            <a href="https://wa.me/5516997918383?text=Olá! Gostaria de uma solução personalizada para minha empresa." target="_blank"
+            <p class="text-zinc-300 max-w-2xl mx-auto mb-8">Nossa equipe de especialistas está pronta para desenvolver a
+                solução ideal para sua empresa.</p>
+            <a href="https://wa.me/5516997918383?text=Olá! Gostaria de uma solução personalizada para minha empresa."
+                target="_blank"
                 class="bg-bordo hover:bg-red-800 text-white px-8 py-3 rounded-lg font-medium transition shadow-lg inline-flex items-center">
                 <i class="fab fa-whatsapp mr-2 text-lg"></i> Fale com nossos especialistas
             </a>
@@ -1073,7 +1226,8 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-white mb-4">Entre em <span class="text-bordo">Contato</span></h2>
-                <p class="text-zinc-400 max-w-2xl mx-auto">Estamos prontos para ajudar sua empresa a encontrar a melhor solução em controle de ponto e acesso.</p>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Estamos prontos para ajudar sua empresa a encontrar a melhor
+                    solução em controle de ponto e acesso.</p>
             </div>
 
             <div class="flex flex-col lg:flex-row gap-8 max-w-4xl mx-auto">
@@ -1100,7 +1254,8 @@
                             <div>
                                 <h4 class="font-semibold text-lg text-white">WhatsApp</h4>
                                 <p class="text-zinc-300">(16) 99791-8383</p>
-                                <a href="https://wa.me/5516997918383?text=Olá! Gostaria de informações sobre produtos e serviços." target="_blank"
+                                <a href="https://wa.me/5516997918383?text=Olá! Gostaria de informações sobre produtos e serviços."
+                                    target="_blank"
                                     class="text-bordo hover:text-red-300 transition inline-flex items-center mt-1">
                                     Clique para conversar <i class="fas fa-external-link-alt ml-1 text-xs"></i>
                                 </a>
@@ -1124,7 +1279,8 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold text-lg text-white">Endereço</h4>
-                                <p class="text-zinc-300">Rua Vicente de Carvalho, 710 Vila Seixas, Ribeirão Preto, SP</p>
+                                <p class="text-zinc-300">Rua Vicente de Carvalho, 710 Vila Seixas, Ribeirão Preto, SP
+                                </p>
                             </div>
                         </div>
 
@@ -1146,11 +1302,13 @@
                         <div class="text-center mb-6">
                             <i class="fab fa-whatsapp text-green-500 text-5xl mb-4"></i>
                             <h3 class="text-2xl font-bold text-white mb-2">Fale Conosco pelo WhatsApp</h3>
-                            <p class="text-zinc-400">Atendimento rápido e direto para tirar dúvidas e solicitar orçamentos.</p>
+                            <p class="text-zinc-400">Atendimento rápido e direto para tirar dúvidas e solicitar
+                                orçamentos.</p>
                         </div>
 
                         <div class="space-y-4">
-                            <a href="https://wa.me/5516997918383?text=Olá! Gostaria de solicitar um orçamento." target="_blank"
+                            <a href="https://wa.me/5516997918383?text=Olá! Gostaria de solicitar um orçamento."
+                                target="_blank"
                                 class="block w-full bg-green-600 hover:bg-green-700 text-white text-center py-3 rounded-lg font-medium transition shadow-md flex items-center justify-center">
                                 <i class="fab fa-whatsapp mr-2 text-lg"></i> Solicitar Orçamento
                             </a>
@@ -1160,7 +1318,8 @@
                                 <i class="fas fa-headset mr-2"></i> Suporte Técnico
                             </a>
 
-                            <a href="https://wa.me/5516997918383?text=Olá! Gostaria de agendar uma demonstração." target="_blank"
+                            <a href="https://wa.me/5516997918383?text=Olá! Gostaria de agendar uma demonstração."
+                                target="_blank"
                                 class="block w-full bg-bordo hover:bg-red-800 text-white text-center py-3 rounded-lg font-medium transition flex items-center justify-center">
                                 <i class="fas fa-calendar-alt mr-2"></i> Agendar Demonstração
                             </a>
@@ -1203,7 +1362,7 @@
         <i class="fab fa-whatsapp text-2xl group-hover:scale-110 transition-transform"></i>
     </a>
 
-    
+
 
     <script>
         // ========== CARROSSEL AUTOMÁTICO ==========
@@ -1213,61 +1372,61 @@
                 this.totalSlides = 4;
                 this.autoPlayInterval = null;
                 this.progressInterval = null;
-                
+
                 this.init();
             }
-            
+
             init() {
                 this.setupEventListeners();
                 this.startAutoPlay();
                 this.updateIndicators();
             }
-            
+
             setupEventListeners() {
                 // Botões de navegação
                 document.getElementById('prev-slide').addEventListener('click', () => this.prevSlide());
                 document.getElementById('next-slide').addEventListener('click', () => this.nextSlide());
-                
+
                 // Indicadores
                 document.querySelectorAll('.carousel-indicator').forEach((indicator, index) => {
                     indicator.addEventListener('click', () => this.goToSlide(index));
                 });
-                
+
                 // Pausar no hover
                 const carousel = document.getElementById('inicio');
                 carousel.addEventListener('mouseenter', () => this.pauseAutoPlay());
                 carousel.addEventListener('mouseleave', () => this.startAutoPlay());
             }
-            
+
             nextSlide() {
                 this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
                 this.updateCarousel();
             }
-            
+
             prevSlide() {
                 this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
                 this.updateCarousel();
             }
-            
+
             goToSlide(index) {
                 this.currentSlide = index;
                 this.updateCarousel();
             }
-            
+
             updateCarousel() {
                 // Atualizar slides
                 document.querySelectorAll('.carousel-slide').forEach((slide, index) => {
                     slide.classList.toggle('active', index === this.currentSlide);
                 });
-                
+
                 // Atualizar conteúdo
                 document.querySelectorAll('.carousel-content-item').forEach((content, index) => {
                     content.classList.toggle('active', index === this.currentSlide);
                 });
-                
+
                 this.updateIndicators();
             }
-            
+
             updateIndicators() {
                 document.querySelectorAll('.carousel-indicator').forEach((indicator, index) => {
                     if (index === this.currentSlide) {
@@ -1281,7 +1440,7 @@
                     }
                 });
             }
-            
+
             startProgressBar(indicator) {
                 this.clearProgressBar(indicator);
                 const progressBar = indicator.querySelector('.carousel-progress');
@@ -1293,7 +1452,7 @@
                     }, 50);
                 }
             }
-            
+
             clearProgressBar(indicator) {
                 const progressBar = indicator.querySelector('.carousel-progress');
                 if (progressBar) {
@@ -1301,16 +1460,16 @@
                     progressBar.style.width = '0%';
                 }
             }
-            
+
             startAutoPlay() {
                 this.clearAutoPlay();
                 this.autoPlayInterval = setInterval(() => this.nextSlide(), 5000);
             }
-            
+
             pauseAutoPlay() {
                 this.clearAutoPlay();
             }
-            
+
             clearAutoPlay() {
                 if (this.autoPlayInterval) {
                     clearInterval(this.autoPlayInterval);
@@ -1325,13 +1484,13 @@
                 this.menuButton = document.getElementById('mobile-menu-button');
                 this.mobileMenu = document.getElementById('mobile-menu');
                 this.isOpen = false;
-                
+
                 this.init();
             }
-            
+
             init() {
                 this.menuButton.addEventListener('click', () => this.toggleMenu());
-                
+
                 // Dropdowns mobile
                 document.querySelectorAll('.mobile-dropdown-btn').forEach(button => {
                     button.addEventListener('click', (e) => {
@@ -1341,35 +1500,35 @@
                         e.target.querySelector('i').classList.toggle('fa-chevron-up');
                     });
                 });
-                
+
                 // Fechar menu ao clicar em um link
                 this.mobileMenu.querySelectorAll('a').forEach(link => {
                     link.addEventListener('click', () => this.closeMenu());
                 });
             }
-            
+
             toggleMenu() {
                 this.isOpen ? this.closeMenu() : this.openMenu();
             }
-            
+
             openMenu() {
                 this.mobileMenu.classList.remove('hidden');
                 this.mobileMenu.classList.add('block');
                 this.isOpen = true;
                 document.body.style.overflow = 'hidden';
             }
-            
+
             closeMenu() {
                 this.mobileMenu.classList.remove('block');
                 this.mobileMenu.classList.add('hidden');
                 this.isOpen = false;
                 document.body.style.overflow = '';
-                
+
                 // Fechar todos os dropdowns
                 document.querySelectorAll('.mobile-dropdown-content').forEach(content => {
                     content.classList.remove('open');
                 });
-                
+
                 document.querySelectorAll('.mobile-dropdown-btn i').forEach(icon => {
                     icon.classList.remove('fa-chevron-up');
                     icon.classList.add('fa-chevron-down');
@@ -1382,10 +1541,10 @@
             constructor() {
                 this.tabs = document.querySelectorAll('.product-tab');
                 this.contents = document.querySelectorAll('.product-content');
-                
+
                 this.init();
             }
-            
+
             init() {
                 this.tabs.forEach(tab => {
                     tab.addEventListener('click', (e) => {
@@ -1394,7 +1553,7 @@
                     });
                 });
             }
-            
+
             switchTab(tabName) {
                 // Atualizar tabs
                 this.tabs.forEach(tab => {
@@ -1406,7 +1565,7 @@
                         tab.classList.add('text-zinc-400', 'border-transparent');
                     }
                 });
-                
+
                 // Atualizar conteúdos
                 this.contents.forEach(content => {
                     if (content.id === `product-${tabName}`) {
@@ -1425,10 +1584,10 @@
             constructor() {
                 this.sections = document.querySelectorAll('.section-hidden');
                 this.fadeElements = document.querySelectorAll('.fade-in');
-                
+
                 this.init();
             }
-            
+
             init() {
                 // Observer para sections
                 const sectionObserver = new IntersectionObserver((entries) => {
@@ -1438,11 +1597,11 @@
                         }
                     });
                 }, { threshold: 0.1 });
-                
+
                 this.sections.forEach(section => {
                     sectionObserver.observe(section);
                 });
-                
+
                 // Observer para elementos fade-in
                 const fadeObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
@@ -1451,7 +1610,7 @@
                         }
                     });
                 }, { threshold: 0.1 });
-                
+
                 this.fadeElements.forEach(element => {
                     fadeObserver.observe(element);
                 });
@@ -1463,21 +1622,21 @@
             constructor() {
                 this.rhidButton = document.getElementById('login-rhid');
                 this.secullumButton = document.getElementById('login-secullum');
-                
+
                 this.init();
             }
-            
+
             init() {
                 this.rhidButton.addEventListener('click', () => this.openRHID());
                 this.secullumButton.addEventListener('click', () => this.openSecullum());
             }
-            
+
             openRHID() {
                 // Simulação de abertura do RHID
                 alert('Redirecionando para o sistema RHID...\n\nEm uma implementação real, isso abriria o formulário de login do RHID.');
                 // window.open('URL_DO_RHID', '_blank');
             }
-            
+
             openSecullum() {
                 // Simulação de abertura do Secullum
                 alert('Redirecionando para o sistema Secullum...\n\nEm uma implementação real, isso abriria o formulário de login do Secullum.');
@@ -1490,17 +1649,17 @@
             constructor() {
                 this.header = document.getElementById('main-header');
                 this.lastScrollY = window.scrollY;
-                
+
                 this.init();
             }
-            
+
             init() {
                 window.addEventListener('scroll', () => this.handleScroll());
             }
-            
+
             handleScroll() {
                 const currentScrollY = window.scrollY;
-                
+
                 if (currentScrollY > 100) {
                     this.header.classList.add('bg-zinc-900/95', 'backdrop-blur-sm');
                     this.header.classList.remove('bg-zinc-800');
@@ -1508,20 +1667,20 @@
                     this.header.classList.remove('bg-zinc-900/95', 'backdrop-blur-sm');
                     this.header.classList.add('bg-zinc-800');
                 }
-                
+
                 this.lastScrollY = currentScrollY;
             }
         }
 
         // ========== INICIALIZAÇÃO ==========
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             new Carousel();
             new MobileMenu();
             new ProductTabs();
             new ScrollAnimations();
             new ClientArea();
             new HeaderScroll();
-            
+
             // Smooth scroll para links internos
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
@@ -1538,4 +1697,5 @@
         });
     </script>
 </body>
+
 </html>
