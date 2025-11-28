@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lavajato Express</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AlpineJS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Ícones Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        blue: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            600: '#2563eb',
+                        },
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        muted: {
+                            DEFAULT: 'hsl(var(--muted))',
+                            foreground: 'hsl(var(--muted-foreground))',
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .bg-background {
+            background-color: hsl(0, 0%, 100%);
+        }
+        
+        .bg-muted {
+            background-color: hsl(210, 40%, 98%);
+        }
+        
+        .text-muted-foreground {
+            color: hsl(215.4, 16.3%, 46.9%);
+        }
+        
+        .border {
+            border-color: hsl(214.3, 31.8%, 91.4%);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <div x-data="{ mobileMenuOpen: false }">
+        <!-- Header -->
+        <header class="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+            <div class="container mx-auto px-4 flex h-16 items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="car" class="h-8 w-8 text-blue-600"></i>
+                    <span class="text-xl font-bold">Lavajato Express</span>
+                </div>
+                
+                <nav class="hidden md:flex gap-6">
+                    <a href="#" class="text-sm font-medium hover:text-blue-600">Início</a>
+                    <a href="#" class="text-sm font-medium hover:text-blue-600">Serviços</a>
+                    <a href="#" class="text-sm font-medium hover:text-blue-600">Preços</a>
+                    <a href="#" class="text-sm font-medium hover:text-blue-600">Sobre</a>
+                    <a href="#" class="text-sm font-medium hover:text-blue-600">Contato</a>
+                </nav>
+                
+                <div class="flex items-center gap-4">
+                    <button class="px-4 py-2 text-sm font-medium hover:text-blue-600">Entrar</button>
+                    <button class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700">
+                        Agendar agora
+                    </button>
+                    
+                    <!-- Mobile menu button -->
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden">
+                        <i data-lucide="menu" class="h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div x-show="mobileMenuOpen" class="md:hidden border-t">
+                <div class="container mx-auto px-4 py-4 space-y-3">
+                    <a href="#" class="block text-sm font-medium hover:text-blue-600">Início</a>
+                    <a href="#" class="block text-sm font-medium hover:text-blue-600">Serviços</a>
+                    <a href="#" class="block text-sm font-medium hover:text-blue-600">Preços</a>
+                    <a href="#" class="block text-sm font-medium hover:text-blue-600">Sobre</a>
+                    <a href="#" class="block text-sm font-medium hover:text-blue-600">Contato</a>
+                    <div class="pt-3 border-t">
+                        <button class="w-full px-4 py-2 text-sm font-medium hover:text-blue-600">Entrar</button>
+                        <button class="w-full mt-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700">
+                            Agendar agora
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="container mx-auto px-4 py-12 md:py-24">
+            <div class="flex flex-col items-center text-center gap-6">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm bg-gray-100">
+                    <i data-lucide="star" class="w-4 h-4 mr-1 fill-yellow-400 text-yellow-400"></i>
+                    Mais de 500 clientes satisfeitos
+                </span>
+                
+                <h1 class="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+                    Seu carro limpo e brilhando com 
+                    <span class="text-blue-600"> praticidade</span>
+                </h1>
+                
+                <p class="max-w-[700px] text-muted-foreground md:text-xl">
+                    Agende online e tenha o melhor serviço de lavagem para seu veículo. 
+                    Economize tempo e garanta qualidade com nossos profissionais especializados.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 mt-6">
+                    <button class="px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 flex items-center justify-center">
+                        <i data-lucide="calendar" class="w-5 h-5 mr-2"></i>
+                        Agendar serviço
+                    </button>
+                    <button class="px-6 py-3 border border-gray-300 font-medium rounded-md hover:bg-gray-50 flex items-center justify-center">
+                        <i data-lucide="phone" class="w-5 h-5 mr-2"></i>
+                        Conhecer serviços
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="container mx-auto px-4 py-12 bg-white rounded-lg border">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center text-center">
+                    <div class="p-3 rounded-full bg-blue-100 mb-4">
+                        <i data-lucide="clock" class="w-8 h-8 text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Agendamento Rápido</h3>
+                    <p class="text-muted-foreground">
+                        Agende em poucos cliques pelo site ou aplicativo. Escolha o horário que melhor se adapta à sua rotina.
+                    </p>
+                </div>
+                
+                <div class="flex flex-col items-center text-center">
+                    <div class="p-3 rounded-full bg-blue-100 mb-4">
+                        <i data-lucide="shield" class="w-8 h-8 text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Qualidade Garantida</h3>
+                    <p class="text-muted-foreground">
+                        Utilizamos os melhores produtos e equipamentos para garantir que seu carro fique impecável.
+                    </p>
+                </div>
+                
+                <div class="flex flex-col items-center text-center">
+                    <div class="p-3 rounded-full bg-blue-100 mb-4">
+                        <i data-lucide="map-pin" class="w-8 h-8 text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Localização Privilegiada</h3>
+                    <p class="text-muted-foreground">
+                        Estamos localizados no centro da cidade, com fácil acesso e estacionamento gratuito para clientes.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="container mx-auto px-4 py-12 md:py-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl">Nossos Serviços</h2>
+                <p class="max-w-[700px] mx-auto text-muted-foreground md:text-xl mt-4">
+                    Oferecemos uma variedade de serviços para manter seu veículo sempre limpo e conservado.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Service 1 -->
+                <div class="border rounded-lg overflow-hidden hover:shadow-md transition-all relative">
+                    <span class="absolute -top-3 left-1/2 transform -translate-x-1/2 px-3 py-1 rounded-full text-xs bg-blue-600 text-white">
+                        Mais Popular
+                    </span>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Lavagem Completa</h3>
+                        <p class="text-muted-foreground mb-4">Lavagem externa e interna com produtos premium</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-2xl font-bold text-blue-600">R$ 50,00</span>
+                            <div class="flex items-center text-sm text-muted-foreground">
+                                <i data-lucide="clock" class="w-4 h-4 mr-1"></i>
+                                40 min
+                            </div>
+                        </div>
+                        <button class="w-full px-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700">
+                            Agendar este serviço
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="border rounded-lg overflow-hidden hover:shadow-md transition-all">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Lavagem Premium</h3>
+                        <p class="text-muted-foreground mb-4">Lavagem completa + cera + higienização interna</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-2xl font-bold text-blue-600">R$ 80,00</span>
+                            <div class="flex items-center text-sm text-muted-foreground">
+                                <i data-lucide="clock" class="w-4 h-4 mr-1"></i>
+                                1h 15min
+                            </div>
+                        </div>
+                        <button class="w-full px-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700">
+                            Agendar este serviço
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="border rounded-lg overflow-hidden hover:shadow-md transition-all">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Lavagem Simples</h3>
+                        <p class="text-muted-foreground mb-4">Lavagem rápida externa</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-2xl font-bold text-blue-600">R$ 25,00</span>
+                            <div class="flex items-center text-sm text-muted-foreground">
+                                <i data-lucide="clock" class="w-4 h-4 mr-1"></i>
+                                20 min
+                            </div>
+                        </div>
+                        <button class="w-full px-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700">
+                            Agendar este serviço
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="container mx-auto px-4 py-12 md:py-20 bg-blue-50 rounded-lg">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl">O que nossos clientes dizem</h2>
+                <p class="max-w-[700px] mx-auto text-muted-foreground md:text-xl mt-4">
+                    A satisfação dos nossos clientes é a nossa maior recompensa.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="border rounded-lg bg-white p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="font-bold">Carlos Silva</h3>
+                            <p class="text-sm text-muted-foreground">Cliente satisfeito</p>
+                        </div>
+                        <div class="flex">
+                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                        </div>
+                    </div>
+                    <p class="italic">"Melhor lavajato da cidade! Serviço rápido e de qualidade."</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="border rounded-lg bg-white p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="font-bold">Mariana Oliveira</h3>
+                            <p class="text-sm text-muted-foreground">Cliente satisfeito</p>
+                        </div>
+                        <div class="flex">
+                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                        </div>
+                    </div>
+                    <p class="italic">"Atendimento excelente e meu carro ficou como novo!"</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="border rounded-lg bg-white p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="font-bold">João Santos</h3>
+                            <p class="text-sm text-muted-foreground">Cliente satisfeito</p>
+                        </div>
+                        <div class="flex">
+                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 text-gray-300"></i>
+                        </div>
+                    </div>
+                    <p class="italic">"Conveniente e com preço justo. Recomendo!"</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="container mx-auto px-4 py-12 md:py-20">
+            <div class="bg-blue-600 border border-blue-600 text-white text-center rounded-lg p-8">
+                <h2 class="text-3xl font-bold mb-4">Pronto para deixar seu carro brilhando?</h2>
+                <p class="text-blue-100 mb-6">
+                    Agende agora mesmo e garanta o melhor cuidado para o seu veículo.
+                </p>
+                <button class="px-6 py-3 bg-white text-blue-600 font-medium rounded-md hover:bg-gray-100 flex items-center justify-center mx-auto">
+                    <i data-lucide="calendar" class="w-5 h-5 mr-2"></i>
+                    Fazer agendamento
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="border-t bg-white">
+            <div class="container mx-auto px-4 py-10">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <i data-lucide="car" class="h-8 w-8 text-blue-600"></i>
+                            <span class="text-xl font-bold">Lavajato Express</span>
+                        </div>
+                        <p class="text-muted-foreground">
+                            Oferecemos os melhores serviços de lavagem para seu veículo com praticidade e qualidade.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-semibold mb-4">Serviços</h3>
+                        <ul class="space-y-2 text-muted-foreground">
+                            <li><a href="#" class="hover:text-blue-600">Lavagem Completa</a></li>
+                            <li><a href="#" class="hover:text-blue-600">Lavagem Premium</a></li>
+                            <li><a href="#" class="hover:text-blue-600">Lavagem Simples</a></li>
+                            <li><a href="#" class="hover:text-blue-600">Higienização</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-semibold mb-4">Links Rápidos</h3>
+                        <ul class="space-y-2 text-muted-foreground">
+                            <li><a href="#" class="hover:text-blue-600">Sobre nós</a></li>
+                            <li><a href="#" class="hover:text-blue-600">Contato</a></li>
+                            <li><a href="#" class="hover:text-blue-600">Perguntas Frequentes</a></li>
+                            <li><a href="#" class="hover:text-blue-600">Política de Privacidade</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-semibold mb-4">Contato</h3>
+                        <ul class="space-y-2 text-muted-foreground">
+                            <li>Rua Exemplo, 123 - Centro</li>
+                            <li>Cidade - Estado</li>
+                            <li>(11) 99999-9999</li>
+                            <li>contato@lavajatoexpress.com</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="border-t mt-8 pt-8 text-center text-muted-foreground">
+                    <p>© 2023 Lavajato Express. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Inicializar ícones Lucide
+        lucide.createIcons();
+    </script>
+</body>
+</html>
